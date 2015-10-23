@@ -1,0 +1,12 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Detalle de {{proveedor.razonsocial}}{% endblock %}
+{% block body %}
+	<h1>Detalles de {{proveedor.razonsocial}} </h1>
+		<div id="al">
+			<label>Razon Social: </label> <label>{{proveedor.razonsocial}}</label><br>
+			<label>Apellidos: </label> <label>{{user.rfc}}</label><br>
+			<label>CURP: </label> <label>{{user.direccion}}</label><br>
+			<label>Email: </label> <label>{{user.telefono}}</label><br>			
+		</div>
+		<input type="submit" value="Regresar" onclick="window.location='{{path('proveedores')}}'">
+{% endblock %}

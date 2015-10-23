@@ -2,11 +2,17 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{asset('css/menu.css')}}">
+	<link rel="stylesheet" href="{{asset('css/main.css')}}">
+	<link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+	<link rel="stylesheet" href="{{asset('css/estilo.css')}}">
 {% endblock %}
 
 
 {% block header %}
 	{% block title %} {% endblock %}
+{% endblock %}
+{% block nav %} 
+	{{ include('SIEBundle:Default:nav.html.twig')}}
 {% endblock %}
 {% block body %}	
 	<section id="section"> 

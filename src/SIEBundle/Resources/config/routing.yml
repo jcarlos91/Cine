@@ -50,3 +50,13 @@ user_edit:
 empleados_new:
     path:    /empleado/nuevo
     defaults: { _controller: SIEBundle:Empleado:nuevo }
+#proveedores
+proveedores:
+    path:    /proveedores
+    defaults: { _controller: SIEBundle:Proveedores:proveedores }
+proveedores_detalle:
+    path:    /proveedores/detalle
+    defaults: { _controller: SIEBundle:Proveedores:detalle }
+proveedores_nuevo:
+    path:    /proveedores/nuevo
+    defaults: { _controller: SIEBundle:Proveedores:nuevo }

@@ -1,0 +1,19 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}NuevoPuesto{% endblock %}
+{% block body %}
+	<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.puesto)}}
+			{{form_errors(form.puesto)}}
+			{{form_widget(form.puesto)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

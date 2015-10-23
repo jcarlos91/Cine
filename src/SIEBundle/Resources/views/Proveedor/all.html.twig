@@ -1,0 +1,28 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Listado de Proveedores {% endblock %}
+{% block contenido %}
+	<article>
+		<h1>Listado de Proveedores</h1>
+		<table class="header">
+			<tr><th>ID</th>
+				<th>Razon Social</th>
+				<th>RFC</th>
+				<th>Dirección</th>
+				<th>Telefono</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
+			</tr>
+			{% for proveedor in proveedor %}
+				<tr>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.id}} </a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.razonsocial}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.RFC}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.direccion}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.telefono}}</a></td>
+					
+				</tr>
+			{% endfor %}
+		</table>
+		<input type="submit" value="Nuevo" onclick="window.location='{{path('proveedores')}}'">
+	</article>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block body %}
+	<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.razonsocial, 'Razón Social: ')}}
+			{{form_widget(form.razonsocial)}}
+			{{form_errors(form.razonsocial)}}
+		</article>
+		<article>
+			{{form_label(form.rFC, 'RFC:')}}
+			{{form_errors(form.rFC)}}
+			{{form_widget(form.rFC)}}
+		</article><br>
+		<article>
+			{{form_label(form.direccion, 'Dirección: ')}}
+			{{form_widget(form.direccion)}}
+			{{form_errors(form.direccion)}}
+		</article>
+		<article>
+			{{form_label(form.telefono, 'Teléfono: ')}}
+			{{form_errors(form.telefono)}}
+			{{form_widget(form.telefono)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

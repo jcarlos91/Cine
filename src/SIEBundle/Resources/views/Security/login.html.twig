@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/supersized.css')}}">
 {% endblock %}
 {% block title %}Login{% endblock %}
+    {% block nav %}{% endblock %}
 {% block body %}
 	<div class="page-container">
         <h1>Login</h1>
@@ -15,14 +16,6 @@
             <button type="submit">Sign me in</button>
             <div class="error"><span>+</span></div>
         </form><br>
-        <!--div class="connect">
-            <p>Or connect with:</p>
-            <p>
-                <a class="facebook" href=""></a>
-                <a class="twitter" href=""></a>
-            </p>
-            
-        </div-->
         {% if error %}
             <div id="connect">{{ error.message | trans({}, 'security') }}</div>
         {% endif %}
