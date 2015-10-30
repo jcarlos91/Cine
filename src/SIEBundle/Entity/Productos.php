@@ -57,9 +57,11 @@ class Productos
     private $precio;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="proveedor", type="integer")
+     * @var \SIEBundle\Entity\Proveedor
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Proveedor")
+     * @ORM\JoinColumns({
+     *    @ORM\joinColumn(name="proveedor", referencedColumnName="id") 
+     * })
      */
     private $proveedor;
 
@@ -197,11 +199,11 @@ class Productos
     /**
      * Set proveedor
      *
-     * @param integer $proveedor
+     * @param \SIEBundle\Entity\Proveedor $proveedor
      *
      * @return Productos
      */
-    public function setProveedor($proveedor)
+    public function setProveedor(\SIEBundle\Entity\Proveedor $proveedor = null)
     {
         $this->proveedor = $proveedor;
 
@@ -211,7 +213,7 @@ class Productos
     /**
      * Get proveedor
      *
-     * @return integer
+     * @return \SIEBundle\Entity\Proveedor
      */
     public function getProveedor()
     {

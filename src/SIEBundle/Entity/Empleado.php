@@ -63,7 +63,7 @@ class Empleado
      */
     private $fechaAlta;
 
-     /**
+    /**
      * @var \SIEBundle\Entity\Puesto
      * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Puesto")
      * @ORM\JoinColumns({
