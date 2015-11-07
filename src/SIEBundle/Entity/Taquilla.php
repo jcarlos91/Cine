@@ -29,11 +29,27 @@ class Taquilla
     private $vendedor;
 
     /**
+     * @var \SIEBundle\Entity\Peliculas
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Peliculas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="pelicula", referencedColumnName="id")
+     *   })
+     */
+    private $pelicula;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="funcion", type="integer")
+     * @ORM\Column(name="fila", type="integer")
      */
-    private $funcion;
+    private $fila;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="columna", type="integer")
+     */
+    private $columna;
 
     /**
      * @var integer
@@ -101,27 +117,69 @@ class Taquilla
     }
 
     /**
-     * Set funcion
+     * Set pelicula
      *
-     * @param integer $funcion
+     * @param \SIEBundle\Entity\Peliculas $pelicula
      *
      * @return Taquilla
      */
-    public function setFuncion($funcion)
-    {
-        $this->funcion = $funcion;
+    public function setPelicula(\SIEBundle\Entity\Peliculas $pelicula = null){
+        $this->pelicula = $pelicula;
 
         return $this;
     }
 
     /**
-     * Get funcion
+     * Get pelicula
+     *
+     * @return \SEIBundle\Entity\Peiculas
+     */
+    public function getPelicula(){
+        return $this->pelicula;
+    }
+
+    /**
+     * Set fila
+     *
+     * @param string $fila
+     *
+     * @return Sala
+     */
+    public function setFila($fila){
+        $this->fila = $fila;
+
+        return $this;
+    }
+
+    /**
+     * Get Fila
      *
      * @return integer
      */
-    public function getFuncion()
-    {
-        return $this->funcion;
+    public function getFila(){
+        return $this->fila;
+    }
+
+    /**
+     * Set columna
+     *
+     * @param string $columna
+     *
+     * @return Sala
+     */
+    public function setColumna($columna){
+        $this->columna = $columna;
+
+        return $this;
+    }
+
+    /**
+     * Get columna
+     *
+     * @return integer
+     */
+    public function getColumna(){
+        return $this->columna;
     }
 
     /**
@@ -220,4 +278,3 @@ class Taquilla
         return $this->hrVta;
     }
 }
-

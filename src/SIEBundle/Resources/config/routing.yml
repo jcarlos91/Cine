@@ -34,6 +34,24 @@ puesto_delete:
 puestos:
     path:    /puestos
     defaults: { _controller: SIEBundle:Puesto:puestos }
+categoria_new:
+    path:    /categoria/nuevo
+    defaults: { _controller: SIEBundle:Categoria:nuevo }
+categorias:
+    path:    /categorias
+    defaults: { _controller: SIEBundle:Categoria:categorias }
+categoria_edit:
+    path:    /categoria/{id}/editar
+    defaults: { _controller: SIEBundle:Categoria:editar }
+categoria_delete:
+    path:    /categoria/{id}/eliminar
+    defaults: { _controller: SIEBundle:Categoria:eliminar }
+boletos_new:
+    path:    /boletos/nuevo
+    defaults: { _controller: SIEBundle:Boletos:nuevo }
+boletos:
+    path:    /boletos
+    defaults: { _controller: SIEBundle:Boletos:boletos }
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo

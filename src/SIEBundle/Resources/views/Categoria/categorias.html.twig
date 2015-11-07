@@ -1,0 +1,23 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block tittle %}Categorias{% endblock %}
+{% block contenido %}
+	<article>
+	<h1>Listado de Categorias</h1>
+	<table class="header">
+		<tr><th>ID</th>
+			<th>Categorias</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for categoria in categoria %}
+			<tr>
+				<td>{{categoria.id}} </a></td>
+				<td>{{categoria.categoria}}</a></td>
+				<td><a href="{{url('categoria_edit',{'id':categoria.id})}}">Editar</a></td>
+				<td><a href="{{url('categoria_delete',{'id':categoria.id})}}">Eliminar</a></td>					
+			</tr>
+		{% endfor %}
+	</table>
+	<input type="submit" value="Nuevo" onclick="window.location='{{path('roles_new')}}'">
+</article>
+{% endblock %}

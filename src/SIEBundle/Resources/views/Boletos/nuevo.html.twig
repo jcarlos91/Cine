@@ -1,0 +1,25 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Nuevo Boleto{% endblock %}
+{% block contenido %}
+	<h1>Registro de Tipos de Boletos</h1>
+	<section>
+		{{ form_start(form, {'action': path('boletos_new'), 'method': 'POST'}) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.tipoboleto, 'Tipo de Boleto: ')}}
+			{{form_errors(form.tipoboleto)}}
+			{{form_widget(form.tipoboleto)}}
+		</article>
+		<article>
+			{{form_label(form.precio, 'Precio: ')}}
+			{{form_errors(form.precio)}}
+			{{form_widget(form.precio)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

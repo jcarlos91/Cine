@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BoletoType extends AbstractType
+class EstadoAsientosType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,7 @@ class BoletoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tipoboleto','text')
-            ->add('precio','money',array('currency'=> 'MXN'))
+            ->add('estado')
         ;
     }
     
@@ -26,7 +25,7 @@ class BoletoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SIEBundle\Entity\Boleto'
+            'data_class' => 'SIEBundle\Entity\EstadoAsientos'
         ));
     }
 
@@ -35,6 +34,6 @@ class BoletoType extends AbstractType
      */
     public function getName()
     {
-        return 'siebundle_boleto';
+        return 'siebundle_estadoasientos';
     }
 }

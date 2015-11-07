@@ -23,7 +23,7 @@ class Dulceria
 
     /**
      * @var \SIEBundle\Entity\Productos
-     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Productos")
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Productos" )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="nombre", referencedColumnName="id")
      *   })
@@ -103,7 +103,7 @@ class Dulceria
     public function setCantidad($cantidad)
     {
         $this->cantidad = $cantidad;
-
+        
         return $this;
     }
 

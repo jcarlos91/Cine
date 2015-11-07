@@ -1,0 +1,19 @@
+{% extends  'SIEBundle::main.html.twig' %}
+{% block title %}Editar Categoria{% endblock %}
+{% block contenido %}
+<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.categoria, 'Categoría')}}
+			{{form_errors(form.categoria)}}
+			{{form_widget(form.categoria)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

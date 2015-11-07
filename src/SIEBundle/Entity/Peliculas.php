@@ -58,6 +58,14 @@ class Peliculas
      */
     private $duracion;
 
+    /**
+     * @var integer
+     * 
+     * @ORM\Column(name="sala", type="integer")
+     *
+     */
+    private $sala;
+
 
     /**
      * Get id
@@ -187,6 +195,28 @@ class Peliculas
     public function getDuracion()
     {
         return $this->duracion;
+    }
+
+    /**
+     * Set sala
+     * 
+     * @param integer $sala
+     * 
+     * @return Peliculas
+     */
+    public function setSala($sala){
+        $this->sala = $sala;
+
+        return $this;
+    }
+
+    /**
+     * Get sala
+     *
+     * @return integer
+     */
+    public function getSala(){
+        return $this->sala;
     }
 }
 

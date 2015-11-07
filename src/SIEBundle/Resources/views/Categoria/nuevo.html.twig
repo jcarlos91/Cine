@@ -1,0 +1,23 @@
+{% extends 'SIEBundle::main.html.twig' %}
+
+{% block title %}
+	Nueva Categoria
+{% endblock %}
+{% block contenido %}
+	<h1>Registro de Empleados</h1>
+	<section>
+		{{ form_start(form, {'action': path('categoria_new'), 'method': 'POST'}) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.categoria, 'Categoría: ')}}
+			{{form_errors(form.categoria)}}
+			{{form_widget(form.categoria)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}
