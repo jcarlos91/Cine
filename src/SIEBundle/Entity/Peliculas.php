@@ -40,7 +40,7 @@ class Peliculas
     /**
      * @var string
      *
-     * @ORM\Column(name="imagen", type="blob")
+     * @ORM\Column(name="imagen", type="string", length=255)
      */
     private $imagen;
 
@@ -59,10 +59,11 @@ class Peliculas
     private $duracion;
 
     /**
-     * @var integer
-     * 
-     * @ORM\Column(name="sala", type="integer")
-     *
+     * @var \SIEBundle\Entity\Sala
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Sala")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sala", referencedColumnName="id")
+     *   })
      */
     private $sala;
 
@@ -104,11 +105,11 @@ class Peliculas
     /**
      * Set categoria
      *
-     * @param integer $categoria
+     * @param \SIEBundle\Entity\Categoria
      *
      * @return Peliculas
      */
-    public function setCategoria($categoria)
+    public function setCategoria(\SIEBundle\Entity\Categoria $categoria = null)
     {
         $this->categoria = $categoria;
 
@@ -118,7 +119,7 @@ class Peliculas
     /**
      * Get categoria
      *
-     * @return integer
+     * @return \SIEBundle\Entity\categoria
      */
     public function getCategoria()
     {
@@ -200,11 +201,11 @@ class Peliculas
     /**
      * Set sala
      * 
-     * @param integer $sala
+     * @param \SIEBundle\Entity\Sala $sala
      * 
      * @return Peliculas
      */
-    public function setSala($sala){
+    public function setSala(\SIEBundle\Entity\Sala $sala = null){
         $this->sala = $sala;
 
         return $this;
@@ -213,7 +214,7 @@ class Peliculas
     /**
      * Get sala
      *
-     * @return integer
+     * @return \SIEBundle\Entity\Sala
      */
     public function getSala(){
         return $this->sala;

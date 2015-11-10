@@ -1,0 +1,24 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Salas{% endblock %}
+{% block contenido %}
+<article>
+	<h1></h1>
+	<table class="header">
+		<tr>
+			<th>ID</th>
+			<th>Tipo de Sala</h>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for sala in sala %}
+			<tr>
+				<td>{{sala.id}}</td>
+				<td>{{sala.tipoSala}}</td>
+				<td><a href="{{url('sala_edit',{'id': sala.id})}}">Editar</a></td>
+				<td><a href="{{url('sala_delete',{'id': sala.id})}}">Eliminar</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	<input type="submit" value="Nuevo" onclick="window.location='{{path('sala_new')}}'">
+</article>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Nueva Sala {% endblock %}
+{% block contenido %}
+<h1>Registro de Tipos de Salas</h1>
+	<section>
+		{{ form_start(form, {'action': path('sala_new'), 'method': 'POST'}) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.tipoSala, 'Tipo de Sala: ')}}
+			{{form_errors(form.tipoSala)}}
+			{{form_widget(form.tipoSala)}}
+		</article>	
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

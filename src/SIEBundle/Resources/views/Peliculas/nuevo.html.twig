@@ -1,0 +1,44 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Nueva Pelicula{% endblock %}
+{% block contenido %}
+	<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.titulo)}}
+			{{form_widget(form.titulo)}}
+			{{form_errors(form.titulo)}}
+		</article>
+		<article>
+			{{form_label(form.categoria)}}
+			{{form_errors(form.categoria)}}
+			{{form_widget(form.categoria)}}
+		</article>
+		<article>
+			{{form_label(form.imagen)}}
+			{{form_widget(form.imagen)}}
+			{{form_errors(form.imagen)}}
+		</article>
+		<article>
+			{{form_label(form.descripcion)}}
+			{{form_errors(form.descripcion)}}
+			{{form_widget(form.descripcion)}}
+		</article>
+		<article>
+			{{form_label(form.duracion)}}
+			{{form_errors(form.duracion)}}
+			{{form_widget(form.duracion)}}
+		</article>
+		<article>
+			{{form_label(form.sala)}}
+			{{form_errors(form.sala)}}
+			{{form_widget(form.sala)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

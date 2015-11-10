@@ -1,0 +1,14 @@
+#pelis{
+	border: 1px solid;
+	width: 100px;
+	
+
+}
+#pelis label{
+	display: inline-block;
+	float: center;
+}
+#pelis img{
+	display: block;	
+	border: 1px solid;
+}

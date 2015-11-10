@@ -1,0 +1,20 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Estado de Acientos {% endblock %}
+{% block contenido %}
+<h1>Registro de Estado de las Salas</h1>
+	<section>
+		{{ form_start(form, {'action': path('edo_aciento_new'), 'method': 'POST'}) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.estado, 'Estado: ')}}
+			{{form_errors(form.estado)}}
+			{{form_widget(form.estado)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

@@ -15,7 +15,7 @@ class BoletosController extends Controller{
 		$form->handleRequest($request);
 		if($form->isValid() && $form->isSubmitted()){
 			try {
-				$em = $this->getdoctrine()->getManager();
+				$em = $this->getDoctrine()->getManager();
 				$em->persist($boleto);
 				$em->flush();
 				return $this->redirectToRoute('boletos_new');				
@@ -31,6 +31,45 @@ class BoletosController extends Controller{
 	}
 
 	public function boletosAction(){
-		$repository = $this->getDoctrien()->getRepository();
+		$repository = $this->getDoctrine()->getRepository('SIEBundle:Boleto');
+		$boleto = $repository->findAll();
+
+		return $this->render('SIEBundle:Boletos:boletos.html.twig',array(
+			'boleto'=>$boleto,
+			)
+		);
+	}
+
+	public function editarAction(Request $request, Boleto $boleto){
+		$form = $this->createForm(new BoletoType(), $boleto);
+		$form->handleRequest($request);
+		if ($form->isValid() && $form->isSubmitted()) {
+			try {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($boleto);
+				$em->flush();
+				return $this->redirectToRoute('boletos');
+			} catch (\Exception $e) {
+				throw new \Exception("Error Processing Request". $e->getMessage());				
+			}
+		}
+
+		return $this->render('SIEBundle:Boletos:editar.html.twig', array(
+			'form'=>$form->createView(),
+			'boleto'=>$boleto,
+			)
+		);
+	}
+
+	public function eliminarAction($id){
+		try {
+			$repository = $this->getDoctrine()->getRepository('SIEBundle:Boleto');
+			$boletro  = $repository->find($id);
+			$this->getDoctrine()->getManager()->remove($boleto);
+			$this->getDoctrine()->getManager()->flush();
+			return $this->redirectToRoute('boletos');
+		} catch (\Exception $e) {
+			throw new \Exception("Error Processing Request". $e->getMessage());			
+		}
 	}
 }

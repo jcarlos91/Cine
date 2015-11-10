@@ -1,17 +1,14 @@
 {% extends 'SIEBundle::main.html.twig' %}
-
-{% block title %}
-	Nueva Categoria
-{% endblock %}
+{% block title %}Editar {{edo.estado}}{% endblock %}
 {% block contenido %}
-	<h1>Registro de Empleados</h1>
-	<section>
+<h1>Editar {{edo.estado}}</h1>
+<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
 		<article>
-			{{form_label(form.categoria, 'Categoría: ')}}
-			{{form_errors(form.categoria)}}
-			{{form_widget(form.categoria)}}
+			{{form_label(form.estado, 'Estado: ')}}
+			{{form_errors(form.estado)}}
+			{{form_widget(form.estado)}}
 		</article>
 		<article>
 			<input type="submit">

@@ -1,18 +1,15 @@
 {% extends 'SIEBundle::main.html.twig' %}
-
-{% block title %}
-	Nueva Categoria
-{% endblock %}
+{% block title %}Editar Sala {% endblock %}
 {% block contenido %}
-	<h1>Registro de Empleados</h1>
+<h1>Editar Tipos de Salas</h1>
 	<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
 		<article>
-			{{form_label(form.categoria, 'Categoría: ')}}
-			{{form_errors(form.categoria)}}
-			{{form_widget(form.categoria)}}
-		</article>
+			{{form_label(form.tipoSala, 'Tipo de Sala: ')}}
+			{{form_errors(form.tipoSala)}}
+			{{form_widget(form.tipoSala)}}
+		</article>	
 		<article>
 			<input type="submit">
 		</article>

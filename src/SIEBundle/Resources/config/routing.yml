@@ -7,7 +7,7 @@ logout:
     path:    /logout
 
 sie_homepage:
-    path:     /index
+    path:     /
     defaults: { _controller: SIEBundle:Default:index }
 #Catalogos
 roles:
@@ -52,6 +52,36 @@ boletos_new:
 boletos:
     path:    /boletos
     defaults: { _controller: SIEBundle:Boletos:boletos }
+boletos_edit:
+    path:    /boletos/{id}/editar
+    defaults: { _controller: SIEBundle:Boletos:editar }
+boletos_delete:
+    path:    /boletos/{id}/eliminar
+    defaults: { _controller: SIEBundle:Boletos:eliminar }
+sala_new:
+    path:    /sala/nueva
+    defaults: { _controller: SIEBundle:Sala:nuevo }
+salas:
+    path:    /salas
+    defaults: { _controller: SIEBundle:Sala:salas }
+sala_edit:
+    path:    /sala/{id}/editar
+    defaults: { _controller: SIEBundle:Sala:editar }
+sala_delete:
+    path:    /sala/{id}/eliminar
+    defaults: { _controller: SIEBundle:Sala:eliminar }
+edo_aciento_new:
+    path:   /edo_aciento/nuevo
+    defaults: { _controller: SIEBundle:EdoAciento:nuevo }
+edo_aciento:
+    path:    /edo_aciento
+    defaults: { _controller: SIEBundle:EdoAciento:asientos }
+edo_aciento_delete:
+    path:    /edo_aciento/{id}/eliminar
+    defaults: { _controller: SIEBundle:EdoAciento:eliminar }
+edo_aciento_edit:
+    path:   /edo_aciento/{id}/edit
+    defaults: { _controller: SIEBundle:EdoAciento:editar }
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo
@@ -78,3 +108,10 @@ proveedores_detalle:
 proveedores_nuevo:
     path:    /proveedores/nuevo
     defaults: { _controller: SIEBundle:Proveedores:nuevo }
+#Peliculas
+peliculas_new:
+    path:    /peliculas/nuevo
+    defaults: { _controller: SIEBundle:Peliculas:nuevo }
+peluculas:
+    path:    /peliculas
+    defaults: { _controller: SIEBundle:Peliculas:peliculas}

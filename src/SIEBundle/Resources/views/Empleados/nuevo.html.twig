@@ -1,6 +1,6 @@
 {% extends 'SIEBundle::main.html.twig' %}
 {% block title %}Paso 1 de Registro{% endblock %}
-{% block body %}
+{% block contenido %}
 	<h1>Registro de Empleados</h1>
 	<section>
 		{{ form_start(form, {'action': path('empleados_new'), 'method': 'POST'}) }}

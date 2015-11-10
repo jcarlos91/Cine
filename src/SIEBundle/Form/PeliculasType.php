@@ -15,11 +15,24 @@ class PeliculasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titulo')
-            ->add('categoria')
-            ->add('imagen')
-            ->add('descripcion')
-            ->add('duracion')
+            ->add('titulo','text',array('max_length'=>250))
+            ->add('categoria','entity',array(
+                'class'=>'SIEBundle\Entity\Categoria',
+                'required'=>true,
+                'placeholder'=>'Seleciona una Categoría',
+                'property'=>'categoria'
+                )
+            )
+            ->add('imagen','url')
+            ->add('descripcion','textarea')
+            ->add('duracion','text')
+            ->add('sala','entity',array(
+                'class'=>'SIEBundle\Entity\Sala',
+                'required'=>true,
+                'placeholder'=>'Asignale una Sala',
+                'property'=>'tipoSala'
+                )
+            )
         ;
     }
     

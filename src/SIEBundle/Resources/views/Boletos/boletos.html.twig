@@ -1,0 +1,26 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Tipos de Boletos{% endblock %}
+{% block contenido %}
+<article>
+	<h1></h1>
+	<table class="header">
+		<tr>
+			<th>ID</th>
+			<th>Tipo de Boleto</h>
+			<th>Precio</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for boleto in boleto %}
+			<tr>
+				<td>{{boleto.id}}</td>
+				<td>{{boleto.tipoboleto}}</td>
+				<td>{{boleto.precio}}</td>
+				<td><a href="{{url('boletos_edit',{'id': boleto.id})}}">Editar</a></td>
+				<td><a href="{{url('boletos_delete',{'id': boleto.id})}}">Eliminar</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	<input type="submit" value="Nuevo" onclick="window.location='{{path('boletos_new')}}'">
+</article>
+{% endblock %}
