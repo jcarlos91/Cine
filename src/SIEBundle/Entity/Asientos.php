@@ -24,9 +24,9 @@ class Asientos
     /**
      * @var \SIEBundle\Entity\Sala
      * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Sala")
-     * @@RM\JoinColumns({
-     *  @ORM\JoinColumn(name="tipo_sala", referencedColumnName="id")    
-     * })
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sala", referencedColumnName="id")
+     *   })
      */
     private $sala;
 
@@ -45,7 +45,7 @@ class Asientos
     private $columna;
 
     /**
-      * @var \SIEBundle\Entity\EstadoAsientos
+     * @var \SIEBundle\Entity\EstadoAsientos
      * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\EstadoAsientos")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="estado", referencedColumnName="id")
@@ -67,11 +67,11 @@ class Asientos
     /**
      * Set sala
      *
-     * @param \SIEBundle\Entity\Sala
+     * @param \SIEBundle\Entiti\Sala $sala
      *
      * @return Asientos
      */
-    public function setSala(\SIEBunlde\Entity\Sala $sala = null)
+    public function setSala(\SIEBundle\Entity\Sala $sala = null)
     {
         $this->sala = $sala;
 

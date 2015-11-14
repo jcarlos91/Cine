@@ -15,10 +15,22 @@ class AsientosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fila')
-            ->add('columna')
-            ->add('sala')
-            ->add('estado')
+            ->add('fila','integer')
+            ->add('columna','integer')
+            ->add('sala','entity',array(
+                'class'=>'SIEBundle\Entity\Sala',
+                'required'=>true,
+                'placeholder'=>'Seleciona un tipo de sala',
+                'property'=>'tipoSala'
+                )
+            )
+            ->add('estado','entity',array(
+                'class'=>'SIEBundle\Entity\EstadoAsientos',
+                'required'=>true,
+                'placeholder'=>'Estado de los Acientos',
+                'property'=>'estado'
+                )
+            )
         ;
     }
     

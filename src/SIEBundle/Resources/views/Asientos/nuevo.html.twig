@@ -1,0 +1,35 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Nuevos Asientos{% endblock %}
+{% block contenido %}
+<h1>Registro de Empleados</h1>
+	<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.sala, 'Sala: ')}}
+			{{form_errors(form.sala)}}
+			{{form_widget(form.sala)}}
+		</article>
+		<article>
+			{{form_label(form.fila, 'Fila: ')}}
+			{{form_errors(form.fila)}}
+			{{form_widget(form.fila)}}
+		</article>
+		<article>
+			{{form_label(form.columna, 'Columna: ')}}
+			{{form_errors(form.columna)}}
+			{{form_widget(form.columna)}}
+		</article>
+		<article>
+			{{form_label(form.estado, 'Estado: ')}}
+			{{form_errors(form.estado)}}
+			{{form_widget(form.estado)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

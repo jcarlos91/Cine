@@ -1,0 +1,25 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Alta de Funciones{% endblock %}
+{% block contenido %}
+<h1>Registro de Empleados</h1>
+	<section>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<article>
+			{{form_label(form.hora, 'Hora de la Función: ')}}
+			{{form_errors(form.hora)}}
+			{{form_widget(form.hora)}}
+		</article>
+		<article>
+			{{form_label(form.pelicula, 'Pelicula: ')}}
+			{{form_errors(form.pelicula)}}
+			{{form_widget(form.pelicula)}}
+		</article>
+		<article>
+			<input type="submit">
+		</article>
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</section>
+{% endblock %}

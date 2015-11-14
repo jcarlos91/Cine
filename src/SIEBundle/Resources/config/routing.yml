@@ -82,6 +82,25 @@ edo_aciento_delete:
 edo_aciento_edit:
     path:   /edo_aciento/{id}/edit
     defaults: { _controller: SIEBundle:EdoAciento:editar }
+funciones_new:
+    path:    /funciones/nueva
+    defaults: { _controller: SIEBundle:Funciones:nuevo }
+funciones:
+    path:    /funciones
+    defaults: { _controller: SIEBundle:Funciones:funciones }
+funciones_edit:
+    path:    /funciones/{id}/editar
+    defaults: { _controller: SIEBundle:Funciones:editar }
+funciones_delete:
+    path:   /funciones/{id}/delete
+    defaults: { _controller: SIEBundle:Funciones:eliminar }
+asientos_new:
+    path:    /asientos/nuevo
+    defaults: { _controller: SIEBundle:Asientos:nuevo }
+asientos:
+    path:    /asientos
+    defaults: { _controller: SIEBundle:Asientos:asientos }
+
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo
@@ -98,6 +117,7 @@ user_edit:
 empleados_new:
     path:    /empleado/nuevo
     defaults: { _controller: SIEBundle:Empleado:nuevo }
+
 #proveedores
 proveedores:
     path:    /proveedores
@@ -112,6 +132,13 @@ proveedores_nuevo:
 peliculas_new:
     path:    /peliculas/nuevo
     defaults: { _controller: SIEBundle:Peliculas:nuevo }
-peluculas:
+peliculas:
     path:    /peliculas
-    defaults: { _controller: SIEBundle:Peliculas:peliculas}
+    defaults: { _controller: SIEBundle:Peliculas:peliculas }
+peliculas_edit:
+    path:    /peliculas/{id}/editar
+    defaults: { _controller: SIEBundle:Peliculas:editar }
+#venta de boletos "Taquilla"
+taquilla_new:
+    path:    /taquilla/nuevo
+    defaults: { _controller: SIEBundle:Taquilla:nuevo }

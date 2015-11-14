@@ -2,17 +2,17 @@
 {% block stylesheets %}
 	{{ parent() }}
 	<link rel="stylesheet" href="{{asset('css/pelis.css')}}">
-	{%	 endblock %}
+{%	 endblock %}
 {% block title %}Peliculas{% endblock %}
 {% block contenido %}
 	{% for peliculas in peliculas %}
-		<article id="peli">
+		<div id="peli">
 			<label for="">{{peliculas.titulo}}</label>
 			<label for="">{{peliculas.categoria.categoria}}</label>
 			<label for="">{{peliculas.descripcion}}</label>
 			<label for="">{{peliculas.duracion}}</label>
 			<label for="">{{peliculas.sala.tiposala}}</label>
 			<img src="{{peliculas.imagen}}" alt="imagen">
-		</article>
+		</div>
 	{% endfor %}
 {% endblock %}

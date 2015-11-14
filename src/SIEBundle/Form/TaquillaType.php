@@ -16,11 +16,13 @@ class TaquillaType extends AbstractType
     {
         $builder
             ->add('vendedor')
-            ->add('funcion')
+            ->add('fila')
+            ->add('columna')
             ->add('cantidad')
             ->add('total')
-            ->add('sala')
             ->add('hrVta')
+            ->add('pelicula')
+            ->add('boleto')
         ;
     }
     

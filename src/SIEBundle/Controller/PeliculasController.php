@@ -18,7 +18,7 @@ class PeliculasController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($pelicula);
 				$em->flush();
-				return $this->redirectToRoute('peliculas_new');
+				return $this->redirectToRoute('peliculas');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request".$e->getMessage());				
 			}
@@ -39,5 +39,11 @@ class PeliculasController extends Controller{
 			'peliculas'=>$peliculas,
 			)
 		);
+	}
+
+	public function editarAction(Request $request, Peliculas $pelicula){
+		$form = $this->createView(new PeliculasType, $pelicula);
+		$form->handleRequest($pelicula);
+		
 	}
 }

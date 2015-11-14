@@ -13,10 +13,16 @@ h1{
 	/*border: 1px solid;*/
 }
 #section{
-	/*border: 1px solid;*/
+	margin-top:  10px;
+	display: inline-block;
+	border: 1px solid;
+	position: relative;
+	margin-left: 10px;
+	width: 99%;
 }
+
 #contenido{
-	/*border: 1px solid;*/
+	border: 1px solid;
 	margin: 20px auto;	
 	border-radius: 6px;
 	padding: 10px;
@@ -27,7 +33,7 @@ h1{
 	width: 10%;
 	height: 100px;
 	float: right;
-	/*border: 1px solid;*/
+	border: 1px solid;
 }
 a{
 	color: #333;

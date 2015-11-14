@@ -1,0 +1,27 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Funciones{% endblock %}
+{% block contenido %}
+<article>
+	<h1>Listado de Funciones</h1>
+	<table class="header">
+		<tr><th>ID</th>
+			<th>Hora</th>
+			<th>Pelicula</th>
+			<th>Sala</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for funcion in funcion %}
+			<tr>
+				<td>{{funcion.id}} </a></td>
+				<td>{{funcion.hora | date('H:i:s')}}</a></td>
+				<td>{{funcion.pelicula.titulo}}</td>
+				<td>{{funcion.pelicula.sala.tiposala}}</td>
+				<td><a href="{{url('funciones_edit',{'id':funcion.id})}}">Editar</a></td>
+				<td><a href="{{url('funciones_delete',{'id':funcion.id})}}">Eliminar</a></td>					
+			</tr>
+		{% endfor %}
+	</table>
+	<input type="submit" value="Nuevo" onclick="window.location='{{path('funciones_new')}}'">
+</article>
+{% endblock %}
