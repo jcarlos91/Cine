@@ -1,18 +1,21 @@
-
 body{
-	font-size: 16px;
-	font-family: 'Gochi Hand', cursive;  
+	/*font-size: 16px;
+	/*font-family: 'Gochi Hand', cursive;  */
 }
 #pie{
-	background-color: #092462;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
 	height: 50px;
 	margin-top: 2px;
 	text-align: center;
 	line-height: 50px;
-	color: #f7f7f7;
-	font-size: 0.8em;
+	color: #333;
+	/*font-size: 0.8em;*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    /*line-height: 1.42857143;*/
 }
-
+/*
 #header{
 	background-color: #092462;
 	text-align: right;
@@ -21,6 +24,7 @@ body{
 #header figure{
 	float: left;
 	margin-left:100px;
+	
 }
 #header figure img{
 	width: 60px;
@@ -35,46 +39,65 @@ body{
 	font-size: 1.6em;
 	display: block;
 }
-
 #header nav ul{
 	padding: 0px;
 	margin: 0px;
 	list-style: none;
-	text-align: center;
+	text-align: center;	
 }
-#header nav ul li{
+nav > ul > li{
 	display: inline-block;
-	height: 55px;
 	margin: 5px 0px 0px 0px;
+	border: 1px solid #fff;
+	position: relative;
 }
-#header nav ul li a {
+nav ul li a {
 	text-decoration: none;
 	color: #f7f7f7;
 	font-weight: bold;
 	padding: 5px 25px;
 	float: right;
-	border: 1px solid;
-}
-/*#header nav ul li:hover {
-    background:#E6344A;
-}*/
-#sub li a {
-	display: none;
-	position: relative;
-	border: 1px solid;	
+	display: block;
+	width: 150px;
+	height: 35px;
 }
 
-nav ul li:hover #sub li a{
+nav ul li a:hover{
+	background: #000;
+	display: block;
+}
+
+nav > ul > li:hover #sub{
+	display: block;
+}
+#sub li a{
+	border: 1px solid;
+}
+
+
+nav ul li #sub{
+	position: absolute;
+	display: none;
+	border: 1px solid #fff;	
+	background: #3669a3;
+	top:40px;
+}
+nav ul li #sub ul{
+	width: 30%;
+	display: table-cell;
+	border: 1px solid #fff;
+}
+/*
+li:hover #sub li a{
 	display: block;
 	position: absolute;
 	border: 1px solid;
 }
 
-nav ul li:hover li a{
-	background-color: #69f; 
-	border-bottom: 1px solid #fff; 
-	color: #000;
+nav ul li #sub li a {
+	display: inline-block;
 }
+
 /*
 nav li ul li ul li a{
 	display: none;
@@ -103,6 +126,4 @@ nav li ul li ul li a {
 @media screen and (min-width: 950px){
 	.submenu{
 	display: none;
-}
-
 }
