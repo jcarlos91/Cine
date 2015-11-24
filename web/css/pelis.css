@@ -4,12 +4,11 @@
 	
 
 }
+
 label{
 	display: inline-block;
-	float: center;
-	width: 25%;
+	margin-left: 15px;
 }
 img{
-	display: block;	
-	border: 1px solid;
+	margin-left: 100px;
 }

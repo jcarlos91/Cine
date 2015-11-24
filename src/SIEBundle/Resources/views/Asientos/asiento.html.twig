@@ -1,29 +1,25 @@
 {% extends 'SIEBundle::main.html.twig' %}
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('css/menu.css')}}">
-	<link rel="stylesheet" href="{{asset('css/normalize.css')}}">
-	<link rel="stylesheet" href="{{asset('css/estilo.css')}}">
-{% endblock %}
 {% block title %}Asientos{% endblock %}
 {% block contenido %}
 	
 	{% for asiento in asientos %}
 		{% set fila = asiento.fila %}
 		{% set columna = asiento.columna %}
-
-			<h1>{{asiento.sala.tiposala}}<h1>
-			<table id="cine">		
-				{% for  noFila in 1..fila %}				
-					<tr>
-						<td>{{noFila}}</td>
-						{% for noColumna in 1..columna %}
-							<td>
-								<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">								
-							</td>
-						{% endfor %}
-					</tr>
-				{% endfor %}
-			</table>
+			<article class="col-md-4">
+				<h1>{{asiento.sala.tiposala}}<h1>
+				<table class="table table-striped">		
+					{% for  noFila in 1..fila %}				
+						<tr>
+							<td>{{noFila}}</td>
+							{% for noColumna in 1..columna %}
+								<td>
+									<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">								
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</table>
+			</article>		
 	{% endfor %}
 	
 {% endblock %}

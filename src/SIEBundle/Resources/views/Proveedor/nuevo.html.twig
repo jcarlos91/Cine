@@ -1,5 +1,5 @@
 {% extends 'SIEBundle::main.html.twig' %}
-{% block body %}
+{% block contenido %}
 	<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
@@ -14,7 +14,7 @@
 			{{form_widget(form.rFC)}}
 		</article><br>
 		<article>
-			{{form_label(form.direccion, 'Dirección: 	')}}
+			{{form_label(form.direccion, 'Dirección: ')}}
 			{{form_widget(form.direccion)}}
 			{{form_errors(form.direccion)}}
 		</article>

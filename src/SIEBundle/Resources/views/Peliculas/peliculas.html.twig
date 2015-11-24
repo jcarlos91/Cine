@@ -6,13 +6,17 @@
 {% block title %}Peliculas{% endblock %}
 {% block contenido %}
 	{% for peliculas in peliculas %}
-		<div id="peli">
-			<label for="">{{peliculas.titulo}}</label>
-			<label for="">{{peliculas.categoria.categoria}}</label>
-			<label for="">{{peliculas.descripcion}}</label>
-			<label for="">{{peliculas.duracion}}</label>
-			<label for="">{{peliculas.sala.tiposala}}</label>
-			<img src="{{peliculas.imagen}}" alt="imagen">
-		</div>
+		<article class="col-md-4">
+			<article class="panel panel-primary">
+				<img class="img-thumbnail" src="{{peliculas.imagen}}" alt="200x200" >	
+				<h3>
+					<label class="label label-primary">{{peliculas.titulo}}</label>
+					<label class="label label-primary">{{peliculas.categoria.categoria}}</label>
+					<label class="label label-primary">{{peliculas.descripcion}}</label>
+					<label class="label label-primary">{{peliculas.duracion}}</label>
+					<label class="label label-primary">{{peliculas.sala.tiposala}}</label>
+				</h3>
+			</article>
+		</article>
 	{% endfor %}
 {% endblock %}

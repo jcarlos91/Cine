@@ -1,10 +1,8 @@
 {% extends 'SIEBundle::main.html.twig' %}
-{% block tittle %}Categorias{% endblock %}
-
-{% block contenido%}
-<article>
+{% block title %}Categorias{% endblock %}
+{% block contenido %}
 	<h1>Listado de Categorias</h1>
-	<table  class="header" >
+	<table  class="table table-striped" >
 		<tr><th>ID</th>
 			<th>Categorias</th>
 			<th>Editar</th>
@@ -20,5 +18,4 @@
 		{% endfor %}
 	</table>
 	<input type="submit" value="Nuevo" onclick="window.location='{{path('roles_new')}}'">
-</article>
 {% endblock %}

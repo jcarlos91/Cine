@@ -1,9 +1,9 @@
 {% extends 'SIEBundle::main.html.twig' %}
 {% block title %}Salas{% endblock %}
 {% block contenido %}
-<article>
-	<h1></h1>
-	<table class="header">
+<article class="col-md-6">
+	<h1>Listado de Salas</h1>
+	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
 			<th>Tipo de Sala</h>
@@ -19,6 +19,6 @@
 			</tr>
 		{% endfor %}
 	</table>
-	<input type="submit" value="Nuevo" onclick="window.location='{{path('sala_new')}}'">
+	<input type="submit" class="btn btn-default" value="Nuevo" onclick="window.location='{{path('sala_new')}}'">
 </article>
 {% endblock %}
