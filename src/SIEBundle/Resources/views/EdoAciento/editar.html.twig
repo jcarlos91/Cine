@@ -2,19 +2,18 @@
 {% block title %}Editar {{edo.estado}}{% endblock %}
 {% block contenido %}
 <h1>Editar {{edo.estado}}</h1>
-<section>
-		{{ form_start(form) }}
-		{{ form_errors(form) }}
-		<article>
-			{{form_label(form.estado, 'Estado: ')}}
-			{{form_errors(form.estado)}}
-			{{form_widget(form.estado)}}
-		</article>
-		<article>
-			<input type="submit">
-		</article>
-		{{ form_row(form._token) }}
-		{{ form_rest(form) }}
-		{{ form_end(form) }}
-	</section>
+
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+	
+		{{form_label(form.estado, 'Estado: ')}}
+		{{form_errors(form.estado)}}
+		{{form_widget(form.estado)}}
+
+		<input class="btn btn-default" type="submit">
+
+	{{ form_row(form._token) }}
+	{{ form_rest(form) }}
+	{{ form_end(form) }}
+
 {% endblock %}

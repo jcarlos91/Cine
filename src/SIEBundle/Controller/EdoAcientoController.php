@@ -43,11 +43,11 @@ class EdoAcientoController extends Controller{
 
 	public function eliminaraction($id){
 		try {
-			$reposytori = $this->getManager()->getRepository('SIEBundle:EstadoAsientos');
+			$reposytori = $this->getDoctrine()->getRepository('SIEBundle:EstadoAsientos');
 			$edo = $reposytori->find($id);
 			$this->getDoctrine()->getManager()->remove($edo);
 			$this->getDoctrine()->getManager()->flush();
-			return $this->redirectToRoute('edo_aciento');
+			return $this->redirectToRoute('edo_asiento');
 		} catch (\Exception $e) {
 			throw new \Exception("Error Processing Request". $e->getMessage());			
 		}
@@ -61,7 +61,7 @@ class EdoAcientoController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($edo);
 				$em->flush();
-				return $this->redirectToRoute('edo_aciento');
+				return $this->redirectToRoute('maxdb_enable_reads_from_master(link)iento');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request". $e->getMessage());				
 			}
