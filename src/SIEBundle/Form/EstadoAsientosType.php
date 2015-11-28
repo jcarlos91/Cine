@@ -15,7 +15,12 @@ class EstadoAsientosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('estado')
+            ->add('estado','text',array(
+                'attr' => array(
+                  'class' => 'form-control'
+                    )
+                )
+            )
         ;
     }
     

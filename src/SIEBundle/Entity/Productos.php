@@ -38,7 +38,7 @@ class Productos
     /**
      * @var string
      *
-     * @ORM\Column(name="cantidad", type="string", length=255)
+     * @ORM\Column(name="cantidad", type="integer")
      */
     private $cantidad;
 
@@ -127,7 +127,7 @@ class Productos
     /**
      * Set cantidad
      *
-     * @param string $cantidad
+     * @param integer $cantidad
      *
      * @return Productos
      */
@@ -141,7 +141,7 @@ class Productos
     /**
      * Get cantidad
      *
-     * @return string
+     * @return integer
      */
     public function getCantidad()
     {

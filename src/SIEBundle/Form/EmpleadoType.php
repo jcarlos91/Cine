@@ -15,16 +15,48 @@ class EmpleadoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre','text')
-            ->add('apellidoP','text')
-            ->add('apellidoM','text')
-            ->add('curp','text',array('max_length'=>18))
-            ->add('fechaNa','date',array('widget'=>'single_text'))
+            ->add('nombre','text',array(
+                    'attr' => array(
+                      'class' => 'form-control'
+                        )
+                    )
+                )
+            ->add('apellidoP','text',array(
+                'attr' => array(
+                  'class' => 'form-control'
+                    )
+                )
+            )
+            ->add('apellidoM','text',array(
+                'attr' => array(
+                  'class' => 'form-control'
+                    )
+                )
+            )
+            ->add('curp','text',array(
+                'max_length'=>18,
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('fechaNa','date',array(
+                'widget'=>'single_text',
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
             ->add('puesto','entity',array(
                 'class'=>'SIEBundle\Entity\Puesto',
                 'required'=>true,
                 'placeholder'=>'Asigne un Puesto',
-                'property'=>'puesto'))
+                'property'=>'puesto',
+                'attr' => array(
+                    'class' => 'form-control'
+                    )
+                )
+            )
         ;
     }
     

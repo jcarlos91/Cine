@@ -15,12 +15,47 @@ class ProductosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre')
-            ->add('descripcion')
-            ->add('cantidad')
-            ->add('costo')
-            ->add('precio')
-            ->add('proveedor')
+            ->add('nombre','text',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('descripcion','textarea',array(
+                'attr'=>array(
+                    'class'=>'form-control',
+                    'rows'=>4
+                    )
+                )
+            )
+            ->add('cantidad','integer',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('costo','integer',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('precio','integer',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('proveedor','entity',array(
+                'class'=>'SIEBundle\Entity\Proveedor',
+                'required'=>true,
+                'placeholder'=>'Selecciona un Proveedor',
+                'property'=>'proveedor',
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
         ;
     }
     

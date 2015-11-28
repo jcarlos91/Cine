@@ -3,7 +3,7 @@
 {% block contenido %}
 <article>
 	<h1>Tipos de Asientos</h1>
-	<table class="header">
+	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
 			<th>Tipo de Estados de Asiento</h>
@@ -14,11 +14,11 @@
 			<tr>
 				<td>{{edo.id}}</td>
 				<td>{{edo.estado}}</td>
-				<td><a href="{{url('edo_aciento_edit',{'id': edo.id})}}">Editar</a></td>
-				<td><a href="{{url('edo_aciento_delete',{'id': edo.id})}}">Eliminar</a></td>
+				<td><a href="{{url('edo_asiento_edit',{'id': edo.id})}}">Editar</a></td>
+				<td><a href="{{url('edo_asiento_delete',{'id': edo.id})}}">Eliminar</a></td>
 			</tr>
 		{% endfor %}
 	</table>
-	<input type="submit" value="Nuevo" onclick="window.location='{{path('edo_aciento_new')}}'">
+	<input class="btn btn-default	" type="submit" value="Nuevo" onclick="window.location='{{path('edo_asiento_new')}}'">
 </article>
 {% endblock %}

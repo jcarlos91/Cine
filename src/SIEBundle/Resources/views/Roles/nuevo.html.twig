@@ -1,20 +1,17 @@
 {% extends 'SIEBundle::main.html.twig' %}
 {% block title %}Nuevo Rol {% endblock %}
 {% block contenido %}
-	<section>
+	<h1>Nuevo Rol</h1>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
-		<article>
+	
 			{{form_label(form.role)}}
 			{{form_errors(form.role)}}
 			{{form_widget(form.role)}}
-		</article>
-		<article>
-			<input type="submit">
-		</article>
+	
+			<input class="btn btn-default" type="submit">
+	
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}
 		{{ form_end(form) }}
-
-	</section>
 {%  endblock %}

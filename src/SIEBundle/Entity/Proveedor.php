@@ -43,9 +43,9 @@ class Proveedor
     private $direccion;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="telefono", type="integer")
+     * @ORM\Column(name="telefono", type="string", length=255)
      */
     private $telefono;
 
@@ -135,7 +135,7 @@ class Proveedor
     /**
      * Set telefono
      *
-     * @param integer $telefono
+     * @param string $telefono
      *
      * @return Proveedor
      */
@@ -149,7 +149,7 @@ class Proveedor
     /**
      * Get telefono
      *
-     * @return integer
+     * @return string
      */
     public function getTelefono()
     {

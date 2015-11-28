@@ -3,24 +3,19 @@
 
 {% block contenido %}
 	<h1>Editar el Tipo de Boleto</h1>
-	<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
-		<article>
+		
 			{{form_label(form.tipoboleto, 'Tipo de Boleto: ')}}
 			{{form_errors(form.tipoboleto)}}
-			{{form_widget(form.tipoboleto)}}
-		</article>
-		<article>
+			{{form_widget(form.tipoboleto, {'attr': {'class': 'form-control'} })}}
+		
 			{{form_label(form.precio, 'Precio: ')}}
 			{{form_errors(form.precio)}}
-			{{form_widget(form.precio)}}
-		</article>
-		<article>
-			<input type="submit">
-		</article>
+			{{form_widget(form.precio, {'attr': {'class': 'form-control'} })}}
+		
+			<input class="btn btn-default" type="submit">
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}
 		{{ form_end(form) }}
-	</section>
 {% endblock %}

@@ -15,10 +15,33 @@ class ProveedorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('razonsocial','text')
-            ->add('rFC','text',array('max_length'=>12))
-            ->add('direccion','textarea')
-            ->add('telefono','number')
+            ->add('razonsocial','text',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('rFC','text',array(
+                'max_length'=>12,
+                'attr'=>array(
+                    'class'=>'form-control text-'
+                    )
+                )
+            )
+            ->add('direccion','textarea',array(
+                'attr'=>array(
+                    'class'=>'form-control',
+                    'rows'=>3
+                    )
+                )
+            )
+            ->add('telefono','number',array(
+                'max_length'=>10,
+                /*'attr'=>array(
+                    'class'=>'form-control'
+                    )*/
+                )
+            )
         ;
     }
     

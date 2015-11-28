@@ -6,7 +6,7 @@
 		{% set fila = asiento.fila %}
 		{% set columna = asiento.columna %}
 			<article class="col-md-4">
-				<h1>{{asiento.sala.tiposala}}<h1>
+				<h1>{{asiento.id}} {{asiento.sala.tiposala}}<h1>
 				<table class="table table-striped">		
 					{% for  noFila in 1..fila %}				
 						<tr>
@@ -19,7 +19,9 @@
 						</tr>
 					{% endfor %}
 				</table>
-			</article>		
+				<input class="btn btn-default" type="submit" value="Editar" onclick="window.location='{{url('asientos_edit',{'id':asiento.id})}}'">
+				<input class="btn btn-default" type="submit" value="Eliminar" onclick="window.location='{{url('asientos_delete',{'id':asiento.id})}}'">
+			</article>
 	{% endfor %}
-	
+	<input class="btn btn-default" type="submit" value="Nuevo" onclick="window.location='{{path('asientos_new')}}'">
 {% endblock %}

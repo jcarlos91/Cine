@@ -40,5 +40,36 @@ class AsientosController extends Controller{
 		);
 	}
 
-	
+	public function editarAction(Request $request, Asientos $asientos){
+		$form = $this->createForm(new AsientosType(), $asientos);
+		$form->handleRequest($request);
+		if ($form->isValid() && $form->isSubmitted()) {
+			try {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($asientos);
+				$em->flush();
+				return $this->redirectToRoute('asientos');
+			} catch (\Exception $e) {
+				throw new \Exception("Error Processing Request".$e->getMessage());				
+			}
+		}
+
+		return $this->render('SIEBundle:Asientos:editar.html.twig',array(
+			'asientos'=>$asientos,
+			'form'=>$form->createView()
+			)
+		);
+	}
+
+	public function eliminarAction($id){
+		try {
+			$repository = $this->getDoctrine()->getRepository('SIEBundle:Asientos');
+			$asiento = $repository->find($id);
+			$this->getDoctrine()->getManager()->remove($asiento);
+			$this->getDoctrine()->getManager()->flush();
+			return $this->redirectToRoute('asientos');
+		} catch (\Exception $e) {
+			throw new \Exception("Error Processing Request".$e->getMessage());			
+		}
+	}
 }

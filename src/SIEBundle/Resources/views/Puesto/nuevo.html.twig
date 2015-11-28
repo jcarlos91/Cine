@@ -1,6 +1,6 @@
 {% extends 'SIEBundle::main.html.twig' %}
 {% block title %}NuevoPuesto{% endblock %}
-{% block body %}
+{% block contenido	 %}
 	<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
@@ -10,7 +10,7 @@
 			{{form_widget(form.puesto)}}
 		</article>
 		<article>
-			<input type="submit">
+			<input class="btn btn-default" type="submit">
 		</article>
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}

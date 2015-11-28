@@ -34,10 +34,10 @@ class ProveedoresController extends Controller{
 		$form->HandleRequest($request);
 		if ($form->isValid() && $form->isSubmitted()) {
 			try {
-				$em = $this->getDoctrine->getManagger();
+				$em = $this->getDoctrine()->getManager();
 				$em->persist($proveedor);
 				$em->flush();
-				return $this->generateToRoute('proveedores_nuevo');
+				return $this->redirectToRoute('proveedores_nuevo');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request". $e->getMessage());				
 			}
@@ -47,5 +47,38 @@ class ProveedoresController extends Controller{
 			'proveedor'=>$proveedor,
 			)
 		);
+	}
+
+	public function editarAction(Request $request, Proveedor $proveedor){
+		$form = $this->createForm(new ProveedorType(), $proveedor);
+		$form->handleRequest($request);
+		if ($form->isValid() && $form->isSubmitted()) {
+			try {
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($proveedor);
+				$em->flush();
+				return $this->redirectToRoute('proveedores');
+			} catch (\Exception $e) {
+				throw new \Exception("Error Processing Request".$e->getMessage());				
+			}
+		}
+
+		return $this->render('SIEBundle:Proveedor:editar.html.twig',array(
+			'proveedor'=>$proveedor,
+			'form'=>$form->createView()
+			)
+		);
+	}
+
+	public function eliminarAction($id){
+		try {
+			$repository = $this->getDoctrine()->getRepository('SIEBundle:Proveedor');
+			$proveedor = $repository->find($id);
+			$this->getDoctrine()->getManager()->remove($proveedor);
+			$this->getDoctrine()->getManager()->flush();
+			return $this->redirectToRoute('proveedores');
+		} catch (\Exception $e) {
+			throw new \Exception("Error Processing Request".$e->getMessage());			
+		}
 	}
 }

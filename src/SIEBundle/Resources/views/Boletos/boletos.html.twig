@@ -15,12 +15,12 @@
 			<tr>
 				<td>{{boleto.id}}</td>
 				<td>{{boleto.tipoboleto}}</td>
-				<td>{{boleto.precio}}</td>
+				<td>${{boleto.precio}}</td>
 				<td><a href="{{url('boletos_edit',{'id': boleto.id})}}">Editar</a></td>
 				<td><a href="{{url('boletos_delete',{'id': boleto.id})}}">Eliminar</a></td>
 			</tr>
 		{% endfor %}
 	</table>
-	<input type="submit" value="Nuevo" onclick="window.location='{{path('boletos_new')}}'">
+	<input class="btn btn-default" type="submit" value="Nuevo" onclick="window.location='{{path('boletos_new')}}'">
 </article>
 {% endblock %}

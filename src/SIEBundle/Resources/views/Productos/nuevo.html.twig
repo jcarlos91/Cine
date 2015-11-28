@@ -1,0 +1,37 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}
+	Nuevo Producto
+{% endblock %}
+{% block contenido %}
+	<h1>Registro de Empleados</h1>
+		{{ form_start(form, {'action': path('empleados_new'), 'method': 'POST'}) }}
+		{{ form_errors(form) }}
+		
+			{{form_label(form.nombre,'Nombre:')}}
+			{{form_errors(form.nombre)}}
+			{{form_widget(form.nombre, {'attr': {'class': 'text-capitalize form-control'} })}}
+		
+			{{form_label(form.descripcion, 'Descripción:')}}
+			{{form_errors(form.descripcion)}}
+			{{form_widget(form.descripcion, {'attr': {'class': 'text-capitalize form-control'} })}}
+		
+			{{form_label(form.cantidad,'Cantidad:')}}
+			{{form_errors(form.cantidad)}}
+			{{form_widget(form.cantidad, {'attr': {'class': 'text-capitalize form-control'} })}}
+		
+			{{form_label(form.costo,'Costo:')}}
+			{{form_errors(form.costo)}}
+			{{form_widget(form.costo, {'attr': {'class': 'text-uppercase form-control' } }) }}
+		
+			{{form_label(form.precio,'Precio:')}}
+			{{form_errors(form.precio)}}
+			{{form_widget(form.precio, {'attr': {'class': 'text-uppercase form-control' } })}}
+
+			{{form_label(form.proveedor,'Proveedor:')}}
+			{{form_errors(form.proveedor)}}
+			{{form_widget(form.proveedor, {'attr': {'class': 'form-control'} })}}
+			<input class="btn btn-default" type="submit">
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{ form_end(form) }
+{% endblock %}

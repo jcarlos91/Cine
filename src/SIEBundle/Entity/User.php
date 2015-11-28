@@ -68,7 +68,7 @@ class User implements UserInterface, \Serializable
      *  @ORM\JoinColumn(name="Roles", referencedColumnName="id")    
      * })
      */
-    private $rol;
+    private $roles;
 
     /**
      * @var \SIEBundle\Entity\Empleado
@@ -228,13 +228,13 @@ class User implements UserInterface, \Serializable
     }*/
 
     /**
-     * Set Role
+     * Set Roles
      *
      * @param \SIEBundle\Entity\Roles $role
      * @return User
      */
-    public function setRol(\SIEBundle\Entity\Roles $rol = null){
-        $this->rol = $rol;
+    public function setRoles(\SIEBundle\Entity\Roles $roles = null){
+        $this->roles = $roles;
 
         return $this;
     }
@@ -244,16 +244,13 @@ class User implements UserInterface, \Serializable
      *
      * @return \SIEBundle\Entity\Roles
      */
-    public function getRol()
+    public function getRoles()
     {
-        return $this->rol;
-        //return array('ROLE_ADMIN');
-
-        /*if ('editor' === $this->permiso) {
-            return array('ROLE_EDITOR');
+        if (is_object($this->roles) && $this->roles->getId() === 1) {
+            return array('ROLE_ADMIN');
         } else {
             return array('ROLE_USER');
-        }*/
+        }
     }
     /**
      * set Empleado
@@ -303,11 +300,4 @@ class User implements UserInterface, \Serializable
         ) = unserialize($serialized);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
 }

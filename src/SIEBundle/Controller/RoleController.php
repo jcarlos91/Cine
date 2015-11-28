@@ -57,4 +57,16 @@ class RoleController extends Controller
     		)
     	);
     }
+
+    public function deleteAction($id){
+        try {
+            $repository = $this->getDoctrine()->getRepository('SIEBundle:Roles');
+            $rol = $repository->find($id);
+            $this->getDoctrine()->getManager()->remove($rol);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('roles');
+        } catch (\Exception $e) {
+            throw new \Exception("Error Processing Request".$e->getMessage());          
+        }
+    }
 }

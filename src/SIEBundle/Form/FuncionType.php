@@ -15,12 +15,21 @@ class FuncionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('hora','time')
+            ->add('hora','time',array(
+                'widget'=>'single_text',
+                'attr' => array(
+                  'class' => 'form-control'
+                    )
+                )
+            )
             ->add('pelicula','entity',array(
                 'class'=>'SIEBundle\Entity\Peliculas',
                 'required'=>true,
                 'placeholder'=>'Agrega una pelicula',
-                'property'=>'titulo'
+                'property'=>'titulo',
+                'attr' => array(
+                  'class' => 'form-control'
+                    )
                 )
             )
         ;

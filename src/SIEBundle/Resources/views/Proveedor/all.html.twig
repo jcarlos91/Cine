@@ -14,15 +14,16 @@
 			</tr>
 			{% for proveedor in proveedor %}
 				<tr>
-					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.id}} </a></td>
-					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.razonsocial}}</a></td>
-					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.RFC}}</a></td>
-					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.direccion}}</a></td>
-					<td><a href="{{url('proveedores_detalle',{'id':proveedors.id})}}">{{proveedor.telefono}}</a></td>
-					
+					<td><a href="{{url('proveedores_detalle',{'id':proveedor.id})}}">{{proveedor.id}} </a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedor.id})}}">{{proveedor.razonsocial}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedor.id})}}">{{proveedor.RFC}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedor.id})}}">{{proveedor.direccion}}</a></td>
+					<td><a href="{{url('proveedores_detalle',{'id':proveedor.id})}}">{{proveedor.telefono}}</a></td>
+					<td><a href="{{url('proveedores_edit',{'id':proveedor.id})}}">Editar</a></td>
+					<td><a href="{{url('proveedores_delete',{'id':proveedor.id})}}">Eliminar</a></td>
 				</tr>
 			{% endfor %}
 		</table>
-		<input type="submit" value="Nuevo" onclick="window.location='{{path('proveedores')}}'">
+		<input class="btn btn-default" type="submit" value="Nuevo" onclick="window.location='{{path('proveedores_nuevo')}}'">
 	</article>
 {% endblock %}

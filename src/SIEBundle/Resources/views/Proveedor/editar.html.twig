@@ -1,0 +1,27 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Proveedor {{proveedor.razonsocial }} {% endblock %}
+{% block contenido %}
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+	
+		{{form_label(form.razonsocial, 'Razón Social: ')}}
+		{{form_widget(form.razonsocial)}}
+		{{form_errors(form.razonsocial)}}
+	
+		{{form_label(form.rFC, 'RFC:')}}
+		{{form_errors(form.rFC)}}
+		{{form_widget(form.rFC)}}
+	
+		{{form_label(form.direccion, 'Dirección: ')}}
+		{{form_widget(form.direccion)}}
+		{{form_errors(form.direccion)}}
+	
+		{{form_label(form.telefono, 'Teléfono: ')}}
+		{{form_errors(form.telefono)}}
+		{{form_widget(form.telefono,{'attr':{'class':'form-control'}})}}
+	
+		<input class="btn btn-default" type="submit">
+	{{ form_row(form._token) }}
+	{{ form_rest(form) }}
+	{{ form_end(form) }}
+{% endblock %}

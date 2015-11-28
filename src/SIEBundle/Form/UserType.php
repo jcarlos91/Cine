@@ -15,13 +15,26 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username','text')
+            ->add('username','text',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
             ->add('password','password',array(
                     'required'=> true,
-                    'max_length' => 8,)
+                    'max_length' => 8,
+                    'attr'=>array(
+                        'class'=>'form-control'
+                        )
+                    )
                 )
             ->add('email','email',array(
-                    'required'=> true)
+                    'required'=> true,
+                    'attr'=>array(
+                        'class'=>'form-control'
+                        )
+                    )
                 )
             ->add('isActive','choice',[
                     'choices'=>[
@@ -29,12 +42,21 @@ class UserType extends AbstractType
                     '2'=>'No'
                     ],
                     'required'=>true
-                ])
-            ->add('rol','entity',array(
+                ],array(
+                    'attr'=>array(
+                        'class'=>'form-control'
+                        )
+                    )
+                )
+            ->add('roles','entity',array(
                     'class'=>'SIEBundle\Entity\Roles',
                     'required'=>true,
                     'placeholder'=>'Selecione un Rol',
-                    'property'=>'role')
+                    'property'=>'role',
+                    'attr'=>array(
+                        'class'=>'form-control'
+                        )
+                    )
                 )
         ;
     }

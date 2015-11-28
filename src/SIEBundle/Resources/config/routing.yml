@@ -70,17 +70,17 @@ sala_edit:
 sala_delete:
     path:    /sala/{id}/eliminar
     defaults: { _controller: SIEBundle:Sala:eliminar }
-edo_aciento_new:
-    path:   /edo_aciento/nuevo
+edo_asiento_new:
+    path:   /edo_asiento/nuevo
     defaults: { _controller: SIEBundle:EdoAciento:nuevo }
-edo_aciento:
-    path:    /edo_aciento
+edo_asiento:
+    path:    /edo_asiento
     defaults: { _controller: SIEBundle:EdoAciento:asientos }
-edo_aciento_delete:
-    path:    /edo_aciento/{id}/eliminar
+edo_asiento_delete:
+    path:    /edo_asiento/{id}/eliminar
     defaults: { _controller: SIEBundle:EdoAciento:eliminar }
-edo_aciento_edit:
-    path:   /edo_aciento/{id}/edit
+edo_asiento_edit:
+    path:   /edo_asiento/{id}/edit
     defaults: { _controller: SIEBundle:EdoAciento:editar }
 funciones_new:
     path:    /funciones/nueva
@@ -100,7 +100,15 @@ asientos_new:
 asientos:
     path:    /asientos
     defaults: { _controller: SIEBundle:Asientos:asientos }
-
+asientos_edit:
+    path:    /asientos/{id}/editar
+    defaults: { _controller: SIEBundle:Asientos:editar }
+asientos_delete:
+    path:    /asientos/{id}/eliminar
+    defaults: { _controller: SIEBundle:Asientos:eliminar }
+productos_new:
+    path:    /productos/nuevo
+    defaults: { _controller: SIEBundle:Productos:nuevo }
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo
@@ -123,11 +131,17 @@ proveedores:
     path:    /proveedores
     defaults: { _controller: SIEBundle:Proveedores:proveedores }
 proveedores_detalle:
-    path:    /proveedores/detalle
+    path:    /proveedores/{id}/detalle
     defaults: { _controller: SIEBundle:Proveedores:detalle }
 proveedores_nuevo:
     path:    /proveedores/nuevo
     defaults: { _controller: SIEBundle:Proveedores:nuevo }
+proveedores_delete:
+    path:    /proveedores/{id}/eliminar
+    defaults: { _controller: SIEBundle:Proveedores:eliminar }
+proveedores_edit:
+    path:    /proveedores/{id}/editar
+    defaults: { _controller: SIEBundle:Proveedores:editar   }
 #Peliculas
 peliculas_new:
     path:    /peliculas/nuevo

@@ -8,15 +8,15 @@
 		<article>
 			{{form_label(form.tipoboleto, 'Tipo de Boleto: ')}}
 			{{form_errors(form.tipoboleto)}}
-			{{form_widget(form.tipoboleto)}}
+			{{form_widget(form.tipoboleto, {'attr': {'class': 'form-control'} })}}
 		</article>
 		<article>
 			{{form_label(form.precio, 'Precio: ')}}
 			{{form_errors(form.precio)}}
-			{{form_widget(form.precio)}}
+			{{form_widget(form.precio, {'attr':{'class': 'form-control'}})}}
 		</article>
 		<article>
-			<input type="submit">
+			<input class="btn btn-default" type="submit">
 		</article>
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}
