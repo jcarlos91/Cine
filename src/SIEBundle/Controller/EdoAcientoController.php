@@ -19,7 +19,7 @@ class EdoAcientoController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($edo);
 				$em->flush();
-				return $this->redirectToRoute('edo_aciento');
+				return $this->redirectToRoute('edo_asiento');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request".$e->getMessage());				
 			}
