@@ -28,11 +28,6 @@ class Sala
      */
     private $tipoSala;
    
-    /* @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\OneToMany(targetEntity="SIEBundle\Entity\Asientos", mappedBy="sala", fetch="EXTRA_LAZY")
-     */
-    private $asientos;
 
     public function __construct()
     {
@@ -72,35 +67,4 @@ class Sala
     {
         return $this->tipoSala;
     }
-
-    /**
-     * Set estado
-     *
-     * @param \SIEBundle\Entity\EstadoAsiento $estado
-     *
-     * @return Asientos
-     */
-    public function setEstado(\SIEBundle\Entity\EstadoAsientos $estado = null){
-        $this->estado = $estado;
-
-        return $this;
-    }
-
-    /**
-     * Get estado
-     *
-     * @return \SIEBundle\Entity\EstadoAsientos
-     */
-    public function getEstado(){
-        return $this->estado;
-    }
-
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAsientos()
-    {
-        return $this->asientos;
-    }
 }
-

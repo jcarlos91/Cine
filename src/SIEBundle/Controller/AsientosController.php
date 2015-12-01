@@ -18,7 +18,7 @@ class AsientosController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($asientos);
 				$em->flush();
-				return $this->redirectToRoute('asientos_new');
+				return $this->redirectToRoute('asientos');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request".$e->getMessage());				
 			}

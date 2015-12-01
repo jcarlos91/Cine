@@ -3,12 +3,13 @@
 namespace SIEBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Roles
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="SIEBundle\Entity\RolesRepository")
+ * @UniqueEntity(fields="role", message="Rol alredy exist")
  */
 class Roles
 {
@@ -24,7 +25,7 @@ class Roles
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=255)
+     * @ORM\Column(name="role", type="string", length=255, unique=true)
      */
     private $role;
 

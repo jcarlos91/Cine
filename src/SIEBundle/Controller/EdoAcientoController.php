@@ -61,7 +61,7 @@ class EdoAcientoController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($edo);
 				$em->flush();
-				return $this->redirectToRoute('maxdb_enable_reads_from_master(link)iento');
+				return $this->redirectToRoute('edo_asiento');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request". $e->getMessage());				
 			}

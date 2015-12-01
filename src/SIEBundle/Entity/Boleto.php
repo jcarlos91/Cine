@@ -3,12 +3,14 @@
 namespace SIEBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Boleto
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="SIEBundle\Entity\BoletoRepository")
+ * @UniqueEntity(fields="tipoBoleto", message="Tipo boleto already exist")
+ * 
  */
 class Boleto
 {
@@ -24,7 +26,7 @@ class Boleto
     /**
      * @var string
      *
-     * @ORM\Column(name="tipoBoleto", type="string", length=255)
+     * @ORM\Column(name="tipoBoleto", type="string", length=255, unique=true)
      */
     private $tipoBoleto;
 

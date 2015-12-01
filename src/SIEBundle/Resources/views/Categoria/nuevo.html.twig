@@ -4,14 +4,14 @@
 	Nueva Categoria
 {% endblock %}
 {% block contenido %}
-	<h1>Registro de Empleados</h1>
+	<h1>Nuena Categoria</h1>
 	<section>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
 		<article>
 			{{form_label(form.categoria, 'Categoría: ')}}
-			{{form_errors(form.categoria)}}
 			{{form_widget(form.categoria)}}
+			{{form_errors(form.categoria,{'attr':{'class':'bg-danger'}})}}
 		</article>
 		<article>
 			<input class="btn btn-default" type="submit">

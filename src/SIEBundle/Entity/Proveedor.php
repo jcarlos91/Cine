@@ -3,12 +3,14 @@
 namespace SIEBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Proveedor
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="SIEBundle\Entity\ProveedorRepository")
+ * @UniqueEntity(fields="razonsocial", message="RFC alredy exist")
  */
 class Proveedor
 {
@@ -24,7 +26,7 @@ class Proveedor
     /**
      * @var string
      *
-     * @ORM\Column(name="razonsocial", type="string", length=255)
+     * @ORM\Column(name="razonsocial", type="string", length=255, unique=true)
      */
     private $razonsocial;
 

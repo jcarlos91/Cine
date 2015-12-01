@@ -15,8 +15,19 @@ class BoletoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tipoboleto','text')
-            ->add('precio','money',array('currency'=> 'MXN'))
+            ->add('tipoboleto','text',array(
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('precio','money',array(
+                'currency'=> 'MXN',
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
         ;
     }
     

@@ -30,4 +30,26 @@ class EmpleadoController extends Controller{
 		);
 	}
 
+	public function editarAction(Requets $request, Empleado $empleado){
+		$form = $this->createForm(new Empleado, $empleado);
+		$form->handleRequest($request);
+		if($form->isValid() && $form->isSubmitted()){
+			try {
+				$this->getDoctrine()->getManager()->persist($empleado);
+				$this->getDoctrine()->getManager()->flush();
+				return $this->redirectToRoute('empleados_new');
+			} catch (\Exception $e) {
+				throw new \Exception("Error Processing Request".$e->getMessage());				
+			}
+		}
+
+		return $this->retnder('SIEBundle:Empleado:editar.html.twig',array(
+			'form'=>$form->createView(),
+			'empleado'=>$empleado,
+			)
+		);
+	}
+
+	
+
 }
