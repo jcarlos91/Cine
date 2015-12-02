@@ -106,9 +106,7 @@ asientos_edit:
 asientos_delete:
     path:    /asientos/{id}/eliminar
     defaults: { _controller: SIEBundle:Asientos:eliminar }
-productos_new:
-    path:    /productos/nuevo
-    defaults: { _controller: SIEBundle:Productos:nuevo }
+
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo
@@ -141,7 +139,20 @@ proveedores_delete:
     defaults: { _controller: SIEBundle:Proveedores:eliminar }
 proveedores_edit:
     path:    /proveedores/{id}/editar
-    defaults: { _controller: SIEBundle:Proveedores:editar   }
+    defaults: { _controller: SIEBundle:Proveedores:editar }
+#Productos
+productos:
+    path:    /productos
+    defaults: { _controller: SIEBundle:Productos:productos }
+productos_new:
+    path:    /productos/nuevo
+    defaults: { _controller: SIEBundle:Productos:nuevo }
+productos_edit:
+    path:    /productos/{id}/editar
+    defaults: { _controller: SIEBundle:Productos:editar }
+productos_delete:
+    path:    /productos/{id}/eliminar
+    defaults: { _controller: SIEBundle:Productos:eliminar }
 #Peliculas
 peliculas_new:
     path:    /peliculas/nuevo

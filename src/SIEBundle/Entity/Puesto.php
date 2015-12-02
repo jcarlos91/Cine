@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="SIEBundle\Entity\PuestoRepository")
- * @UniqueEntity(fields="pueso", message="Puesto alredy exist")
+ * @UniqueEntity(fields="puesto", message="Puesto alredy exist")
  */
 class Puesto
 {

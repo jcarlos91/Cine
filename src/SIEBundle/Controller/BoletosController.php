@@ -64,7 +64,7 @@ class BoletosController extends Controller{
 	public function eliminarAction($id){
 		try {
 			$repository = $this->getDoctrine()->getRepository('SIEBundle:Boleto');
-			$boletro  = $repository->find($id);
+			$boleto  = $repository->find($id);
 			$this->getDoctrine()->getManager()->remove($boleto);
 			$this->getDoctrine()->getManager()->flush();
 			return $this->redirectToRoute('boletos');

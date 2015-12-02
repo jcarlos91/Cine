@@ -22,10 +22,7 @@ class ProductosType extends AbstractType
                 )
             )
             ->add('descripcion','textarea',array(
-                'attr'=>array(
-                    'class'=>'form-control',
-                    'rows'=>4
-                    )
+                'max_length'=>250,
                 )
             )
             ->add('cantidad','integer',array(
@@ -50,7 +47,7 @@ class ProductosType extends AbstractType
                 'class'=>'SIEBundle\Entity\Proveedor',
                 'required'=>true,
                 'placeholder'=>'Selecciona un Proveedor',
-                'property'=>'proveedor',
+                'property'=>'razonsocial',
                 'attr'=>array(
                     'class'=>'form-control'
                     )

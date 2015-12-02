@@ -29,13 +29,13 @@ class Taquilla
     private $vendedor;
 
     /**
-     * @var \SIEBundle\Entity\Peliculas
-     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Peliculas")
+     * @var \SIEBundle\Entity\Funcion
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Funcion")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="pelicula", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="funcion", referencedColumnName="id")
      *   })
      */
-    private $pelicula;
+    private $funcion;
 
     /**
      * @var integer
@@ -117,25 +117,25 @@ class Taquilla
     }
 
     /**
-     * Set pelicula
+     * Set funcion
      *
-     * @param \SIEBundle\Entity\Peliculas $pelicula
+     * @param \SIEBundle\Entity\Funcion $funcion
      *
      * @return Taquilla
      */
-    public function setPelicula(\SIEBundle\Entity\Peliculas $pelicula = null){
-        $this->pelicula = $pelicula;
+    public function setFuncion(\SIEBundle\Entity\Funcion $funcion = null){
+        $this->funcion = $funcion;
 
         return $this;
     }
 
     /**
-     * Get pelicula
+     * Get funcion
      *
-     * @return \SEIBundle\Entity\Peiculas
+     * @return \SEIBundle\Entity\Funcion
      */
-    public function getPelicula(){
-        return $this->pelicula;
+    public function getFuncion(){
+        return $this->funcion;
     }
 
     /**
