@@ -6,9 +6,13 @@ use SIEBundle\Entity\Peliculas;
 use SIEBundle\Form\PeliculasType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class PeliculasController extends Controller{
 
+	/**
+     * @Route("/peliculas", name="peliculas", requirements={"peliculas" = ".+"})
+     */
 	public function nuevoAction(Request $request){
 		$pelicula = new Peliculas();
 		$form = $this->createForm(new PeliculasType(), $pelicula);
@@ -42,8 +46,22 @@ class PeliculasController extends Controller{
 	}
 
 	public function editarAction(Request $request, Peliculas $pelicula){
-		$form = $this->createView(new PeliculasType, $pelicula);
-		$form->handleRequest($pelicula);
-		
+		$form = $this->createForm(new PeliculasType, $pelicula);
+		$form->handleRequest($request);
+		if($form->isValid() && $form->isSubmitted()){
+			try {
+				$this->getDoctrine()->getManager()->persist($pelicula);
+				$this->getDoctrine()->getManager()->flush();
+				return $this->redirectToRoute('peliculas');
+			} catch (\Exception $e) {
+				throw new \Exception("Error Processing Request".$e->getMessage());				
+			}
+		}
+
+		return $this->render('SIEBundle:Peliculas:editar.html.twig',array(
+			'pelicula'=>$pelicula,
+			'form'=>$form->createView(),
+			)
+		);
 	}
 }

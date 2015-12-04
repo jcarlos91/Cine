@@ -39,9 +39,7 @@ class PeliculasType extends AbstractType
                 )
             )
             ->add('descripcion','textarea',array(
-                'attr'=>array(
-                    'class'=>'form-control'
-                    )
+                    'max_length'=>254,
                 )
             )
             ->add('duracion','text',array(

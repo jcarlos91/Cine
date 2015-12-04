@@ -50,6 +50,4 @@ class EmpleadoController extends Controller{
 		);
 	}
 
-	
-
 }

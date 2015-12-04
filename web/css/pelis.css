@@ -6,9 +6,24 @@
 }
 
 label{
-	display: inline-block;
-	margin-left: 15px;
+	display: block;
+	padding: 8px;
+	
 }
 img{
-	margin-left: 100px;
+	float: right;
+
+}
+
+h3{
+	display: inline-block;
+	float: right;
+}
+#text{
+	width: 80%;
+	float: right;
+}
+#pel{
+	width: 20%;
+	padding: 10px;;
 }
