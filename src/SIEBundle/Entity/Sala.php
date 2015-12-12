@@ -67,4 +67,8 @@ class Sala
     {
         return $this->tipoSala;
     }
+
+    public function __toString(){
+        return (string) $this->tipoSala;
+    }
 }

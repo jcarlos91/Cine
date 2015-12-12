@@ -1,0 +1,33 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{asset('css/pelis.css')}}">
+{%	 endblock %}
+{% block title %}
+	Cartelera
+{% endblock %}
+{% block contenido %}
+	{% for pelicula in cartelera %}
+		<article class="col-md-6">
+			<article id="text">
+				<label >{{pelicula.titulo}}</label>
+				<label >{{pelicula.categoria.categoria}}</label>
+				<label >{{pelicula.duracion}}</label>
+				<label >{{pelicula.descripcion}}</label>
+				<label >Funciones :
+					{% for movie in pelicula.carteleras %}
+						<span>{{movie.salaId}}</span>
+						<span>{{movie.funcionId}}Hrs.</span>&nbsp;&nbsp;
+						<span>{{movie.audioId}}</span>&nbsp;&nbsp;&nbsp;&nbsp;				
+					{% endfor %}
+					{#% for x in movies %}
+						<span>{{x.salaId}}</span>
+						<span>{{x.funcionId}}Hrs.</span>&nbsp;&nbsp;
+						<span>{{x.audioId}}</span>&nbsp;&nbsp;&nbsp;&nbsp;				
+					{% endfor %#}
+
+			</article>	
+			<img src="{{pelicula.imagen}}" alt="150x150">				
+		</article>
+	{% endfor %}
+{% endblock %} 

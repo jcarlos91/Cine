@@ -1,0 +1,24 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Tipos de Audio{% endblock %}
+{% block contenido %}
+<article>
+	<h1>Tipos de Audio</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Audio</h>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for audios in audio %}
+			<tr>
+				<td>{{audios.id}}</td>
+				<td>{{audios.audio}}</td>
+				<td><a href="{{url('audio_edit',{'id': audios.id})}}">Editar</a></td>
+				<td><a href="{{url('audio_delete',{'id': audios.id})}}">Eliminar</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	<input class="btn btn-default" type="submit" value="Nuevo" onclick="window.location='{{path('audio_new')}}'">
+</article>
+{% endblock %}

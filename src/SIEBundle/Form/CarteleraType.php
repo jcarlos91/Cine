@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PeliculasType extends AbstractType
+class CarteleraType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,44 +15,41 @@ class PeliculasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titulo','text',array(
-                'max_length'=>250,
-                'attr' => array(
-                  'class' => 'form-control'
-                    )
-                )
-            )
-            ->add('categoria','entity',array(
-                'class'=>'SIEBundle\Entity\Categoria',
+            ->add('peliculaId','entity',array(
+                'class'=>'SIEBundle\Entity\Peliculas',
                 'required'=>true,
-                'placeholder'=>'Seleciona una Categoría',
-                'property'=>'categoria',
+                'placeholder'=>'Selecciona una Pelicula',
+                'property'=>'titulo',
                 'attr'=>array(
                     'class'=>'form-control'
                     )
                 )
             )
-            ->add('imagen','url',array(
-                'attr' => array(
-                  'class' => 'form-control'
-                    )
-                )
-            )
-            ->add('descripcion','textarea',array(
-                    'max_length'=>254,
-                )
-            )
-            ->add('duracion','text',array(
+            ->add('salaId','entity',array(
+                'class'=>'SIEBundle\Entity\Sala',
+                'required'=>true,
+                'placeholder'=>'Seleciona una Sala',
+                'property'=>'tipoSala',
                 'attr'=>array(
                     'class'=>'form-control'
                     )
                 )
             )
-            ->add('estatus','entity',array(
-                'class'=>'SIEBundle\Entity\EstatusPelicula',
+            ->add('funcionId','entity',array(
+                'class'=>'SIEBundle\Entity\Funcion',
                 'required'=>true,
-                'placeholder'=>'Selecionar un Estatus',
-                'property'=>'estatus',
+                'placeholder'=>'Seleciona una funcion',
+                
+                'attr'=>array(
+                    'class'=>'form-control'
+                    )
+                )
+            )
+            ->add('audioId','entity',array(
+                'class'=>'SIEBundle\Entity\Audio',
+                'required'=>true,
+                'placeholder'=>'Seleciona un tipo de audio',
+                'property'=>'audio',
                 'attr'=>array(
                     'class'=>'form-control'
                     )
@@ -67,7 +64,7 @@ class PeliculasType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SIEBundle\Entity\Peliculas'
+            'data_class' => 'SIEBundle\Entity\Cartelera'
         ));
     }
 
@@ -76,6 +73,6 @@ class PeliculasType extends AbstractType
      */
     public function getName()
     {
-        return 'siebundle_peliculas';
+        return 'siebundle_cartelera';
     }
 }

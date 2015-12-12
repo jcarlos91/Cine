@@ -4,20 +4,23 @@
 	<link rel="stylesheet" href="{{asset('css/pelis.css')}}">
 {%	 endblock %}
 {% block title %}Peliculas{% endblock %}
-{% block contenido %}
-	{% for peliculas in peliculas %}
+{% block contenido %}	
+	{% for pelicula in peliculas %}
 		<article class="col-md-6">
 			<article id="text">
-				<label >{{peliculas.titulo}}</label>
-				<label >{{peliculas.categoria.categoria}}</label>
-				<label >{{peliculas.duracion}}</label>
-				<label >{{peliculas.sala.tiposala}}</label>
-				<label >{{peliculas.descripcion}}</label>
-				<input class="btn btn-default" type="submit" value="Editar" onclick="window.location='{{url('peliculas_edit',{'id': peliculas.id})}}'">				
+				<label >{{pelicula.titulo}}</label>
+				<label >{{pelicula.categoria.categoria}}</label>
+				<label >{{pelicula.duracion}}</label>
+				<label >{{pelicula.descripcion}}</label>
+				<label >{{pelicula.estatus.estatus}}</label> 
+					{#% for funcion in pelicula.funciones %}
+						<span>{{funcion.hora | date('H:i')}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					{% endfor %#}
+				<input class="btn btn-default" type="submit" value="Editar" onclick="window.location='{{url('peliculas_edit',{'id': pelicula.id})}}'">
+				<input class="btn btn-default" type="submit" value="Eliminar" onclick="window.location='{{url('peliculas_delete',{'id' : pelicula.id}) }}'">
 			</article>	
-			<article id="pel">
-				<img src="{{peliculas.imagen}}" alt="200x200">					
-			</article>
+			<img src="{{pelicula.imagen}}" alt="150x150">				
 		</article>
 	{% endfor %}
+	<input type="submit" class="btn btn-default" Value="nuevo" onclick="window.location='{{url('peliculas_new')}}'">
 {% endblock %}

@@ -18,7 +18,7 @@ class CategoriaController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($categoria);
 				$em->flush();
-				return $this->redirectToRoute('categoria_new');
+				return $this->redirectToRoute('categorias');
 			}
 			catch(\Exception $e){
 				throw new \Exception("Error Processing Request".$e->getMessage());				

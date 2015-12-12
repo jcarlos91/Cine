@@ -106,7 +106,30 @@ asientos_edit:
 asientos_delete:
     path:    /asientos/{id}/eliminar
     defaults: { _controller: SIEBundle:Asientos:eliminar }
-
+audio:
+    path:    /audio
+    defaults: { _controller: SIEBundle:Audio:audio }
+audio_new:
+    path:    /audio/nuevo
+    defaults: { _controller: SIEBundle:Audio:nuevo }
+audio_edit:
+    path:    /audio/{id}/editar
+    defaults: { _controller: SIEBundle:Audio:editar }
+audio_delete:
+    path:    /audio/{id}/eliminar
+    defaults: { _controller: SIEBundle:Audio:eliminar }
+estatus_peli:
+    path:    /estatus/peliculas
+    defaults: { _controller: SIEBundle:EstatusPeli:estatus }
+estatus_peli_new:
+    path:    /estatus/peliculas/nuevo
+    defaults: { _controller: SIEBundle:EstatusPeli:nuevo }
+estatus_peli_edit:
+    path:    /estatus/peliculas/{id}/editar
+    defaults: { _controller: SIEBundle:EstatusPeli:editar }
+estatus_peli_delete:
+    path:    /estatus/peliculas/{id}/eliminar
+    defaults: { _controller: SIEBundle:EstatusPeli:eliminar }
 #Usuarios
 user_new:
     path:    /user/{id}/nuevo
@@ -163,7 +186,17 @@ peliculas:
 peliculas_edit:
     path:    /peliculas/{id}/editar
     defaults: { _controller: SIEBundle:Peliculas:editar }
+peliculas_delete:
+    path:    /peliculas/{id}/eliminar
+    defaults: { _controller: SIEBundle:Peliculas:eliminar }
 #venta de boletos "Taquilla"
 taquilla_new:
     path:    /taquilla/nuevo
     defaults: { _controller: SIEBundle:Taquilla:nuevo }
+#cartelera
+cartelera:
+    path:    /cartelera
+    defaults: { _controller: SIEBundle:Cartelera:cartelera }
+cartelera_new:
+    path:    /cartelera/nuevo
+    defaults: { _controller: SIEBundle:Cartelera:nuevo }

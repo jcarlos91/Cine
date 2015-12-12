@@ -5,12 +5,12 @@ namespace SIEBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Funcion
+ * EstatusPelicula
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="SIEBundle\Entity\FuncionRepository")
+ * @ORM\Entity(repositoryClass="SIEBundle\Entity\EstatusPeliculaRepository")
  */
-class Funcion
+class EstatusPelicula
 {
     /**
      * @var integer
@@ -22,12 +22,12 @@ class Funcion
     private $id;
 
     /**
-     * @var time
+     * @var string
      *
-     * @ORM\Column(name="hora", type="time")
-     *
+     * @ORM\Column(name="estatus", type="string", length=255)
      */
-    private $hora;
+    private $estatus;
+
 
     /**
      * Get id
@@ -40,31 +40,27 @@ class Funcion
     }
 
     /**
-     * Set hora
+     * Set estatus
      *
-     * @param time $hora
+     * @param string $estatus
      *
-     * @return Funcion
+     * @return EstatusPelicula
      */
-    public function setHora($hora)
+    public function setEstatus($estatus)
     {
-        $this->hora = $hora;
+        $this->estatus = $estatus;
 
         return $this;
     }
 
     /**
-     * Get hora
+     * Get estatus
      *
-     * @return time
+     * @return string
      */
-    public function getHora()
+    public function getEstatus()
     {
-        return $this->hora;
-    }
-
-    public function __toString(){
-
-        return (string) $this->hora->format('H:i');
+        return $this->estatus;
     }
 }
+

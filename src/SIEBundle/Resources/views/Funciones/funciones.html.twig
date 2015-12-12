@@ -6,8 +6,6 @@
 	<table class="table table-striped">
 		<tr><th>ID</th>
 			<th>Hora</th>
-			<th>Pelicula</th>
-			<th>Sala</th>
 			<th>Editar</th>
 			<th>Eliminar</th>
 		</tr>
@@ -15,8 +13,6 @@
 			<tr>
 				<td>{{funcion.id}} </a></td>
 				<td>{{funcion.hora | date('H:i:s')}}</a></td>
-				<td>{{funcion.pelicula.titulo}}</td>
-				<td>{{funcion.pelicula.sala.tiposala}}</td>
 				<td><a href="{{url('funciones_edit',{'id':funcion.id})}}">Editar</a></td>
 				<td><a href="{{url('funciones_delete',{'id':funcion.id})}}">Eliminar</a></td>					
 			</tr>

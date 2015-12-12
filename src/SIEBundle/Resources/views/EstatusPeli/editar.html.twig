@@ -1,19 +1,18 @@
 {% extends 'SIEBundle::main.html.twig' %}
-{% block title %}Editar Funcion {% endblock %}
+{% block title %}Editar Estatus {% endblock %}
+
 {% block contenido %}
-<h1>Registro de Empleados</h1>
-	
+	<h1>Alta de Audio</h1>
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
-	
-			{{form_label(form.hora, 'Hora de la Función: ')}}
-			{{form_errors(form.hora)}}
-			{{form_widget(form.hora,{'attr':{'class':'form-control'} })}}
-	
+		
+			{{form_label(form.estatus, 'Estatus: ')}}
+			{{form_widget(form.estatus)}}
+			{{form_errors(form.estatus)}}
+		
+		
 			<input class="btn btn-default" type="submit">
-	
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}
 		{{ form_end(form) }}
-	
 {% endblock %}

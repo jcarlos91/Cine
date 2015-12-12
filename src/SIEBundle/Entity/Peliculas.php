@@ -4,6 +4,9 @@ namespace SIEBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Peliculas
  *
@@ -60,13 +63,29 @@ class Peliculas
     private $duracion;
 
     /**
-     * @var \SIEBundle\Entity\Sala
-     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Sala")
+     * @var \SIEBundle\Entity\EstatusPelicula
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\EstatusPelicula")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="sala", referencedColumnName="id")
-     *   })
+     *   @ORM\JoinColumn(name="estatus", referencedColumnName="id")
+     *  })
+     **/
+    private $estatus;
+
+    /**
+     * \Doctrine\Common\Collections\Collection
+     * 
+     * @OneToMany(targetEntity="SIEBundle\Entity\Cartelera", mappedBy="peliculaId")
      */
-    private $sala;
+    private $carteleras;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        //$this->peliculaId = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->carteleras = new ArrayCollection();
+    }
 
 
     /**
@@ -120,7 +139,7 @@ class Peliculas
     /**
      * Get categoria
      *
-     * @return \SIEBundle\Entity\categoria
+     * @return \SIEBundle\Entity\Categoria
      */
     public function getCategoria()
     {
@@ -200,25 +219,60 @@ class Peliculas
     }
 
     /**
-     * Set sala
-     * 
-     * @param \SIEBundle\Entity\Sala $sala
-     * 
+     * Set estatus
+     *
+     * @param \SIEBundle\Entity\EstatusPelicula
+     *
      * @return Peliculas
      */
-    public function setSala(\SIEBundle\Entity\Sala $sala = null){
-        $this->sala = $sala;
+    public function setEstatus(\SIEBundle\Entity\EstatusPelicula $estatus = null)
+    {
+        $this->estatus = $estatus;
 
         return $this;
     }
 
     /**
-     * Get sala
+     * Get estatus
      *
-     * @return \SIEBundle\Entity\Sala
+     * @return \SIEBundle\Entity\EstatusPelicula
      */
-    public function getSala(){
-        return $this->sala;
+    public function getEstatus()
+    {
+        return $this->estatus;
+    }
+    
+    /**
+     * Add cartelera
+     *
+     * @param \SIEBundle\Entity\Cartelera $cartelera
+     * @return Ahorro
+     */
+    public function addCarteleras(\SIEBundle\Entity\Cartelera $carteleras)
+    {
+        $this->carteleras[] = $carteleras;
+
+        return $this;
+    }
+
+    /**
+     * Remove Cartelera
+     *
+     * @param \SIEBundle\Entity\Cartelera $cartelera
+     */
+    public function removeCarteleras(\SIEBundle\Entity\Cartelera $carteleras)
+    {
+        $this->carteleras>removeElement($carteleras);
+    }
+
+    /**
+     * Get cartelera
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCarteleras()
+    {
+        return $this->carteleras;
     }
 }
 

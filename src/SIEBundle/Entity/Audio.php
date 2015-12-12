@@ -5,12 +5,12 @@ namespace SIEBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Funcion
+ * Audio
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="SIEBundle\Entity\FuncionRepository")
+ * @ORM\Entity(repositoryClass="SIEBundle\Entity\AudioRepository")
  */
-class Funcion
+class Audio
 {
     /**
      * @var integer
@@ -22,12 +22,12 @@ class Funcion
     private $id;
 
     /**
-     * @var time
+     * @var string
      *
-     * @ORM\Column(name="hora", type="time")
-     *
+     * @ORM\Column(name="audio", type="string", length=255)
      */
-    private $hora;
+    private $audio;
+
 
     /**
      * Get id
@@ -40,31 +40,31 @@ class Funcion
     }
 
     /**
-     * Set hora
+     * Set audio
      *
-     * @param time $hora
+     * @param string $audio
      *
-     * @return Funcion
+     * @return Audio
      */
-    public function setHora($hora)
+    public function setAudio($audio)
     {
-        $this->hora = $hora;
+        $this->audio = $audio;
 
         return $this;
     }
 
     /**
-     * Get hora
+     * Get audio
      *
-     * @return time
+     * @return string
      */
-    public function getHora()
+    public function getAudio()
     {
-        return $this->hora;
+        return $this->audio;
     }
 
     public function __toString(){
-
-        return (string) $this->hora->format('H:i');
+        return (string) $this->audio;
     }
 }
+

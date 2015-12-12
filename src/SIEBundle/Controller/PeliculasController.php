@@ -6,13 +6,9 @@ use SIEBundle\Entity\Peliculas;
 use SIEBundle\Form\PeliculasType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class PeliculasController extends Controller{
 
-	/**
-     * @Route("/peliculas", name="peliculas", requirements={"peliculas" = ".+"})
-     */
 	public function nuevoAction(Request $request){
 		$pelicula = new Peliculas();
 		$form = $this->createForm(new PeliculasType(), $pelicula);
@@ -63,5 +59,17 @@ class PeliculasController extends Controller{
 			'form'=>$form->createView(),
 			)
 		);
+	}
+
+	public function eliminarAction($id){
+		try {
+			$repository = $this->getDoctrine()->getRepository('SIEBundle:Peliculas');
+			$pelicula = $repository->find($id);
+			$this->getDoctrine()->getManager()->remove($pelicula);
+			$this->getDoctrine()->getManager()->flush();
+			return $this->redirectToRoute('peliculas');
+		} catch (\Exception $e) {
+			throw new \Exception("Error Processing Request".$e->getMessage());			
+		}
 	}
 }

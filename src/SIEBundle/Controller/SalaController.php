@@ -17,7 +17,7 @@ class SalaController extends Controller{
 			try {
 				$em = $this->getDoctrine()->getManager()->persist($sala);
 				$em = $this->getDoctrine()->getManager()->flush();
-				return $this->redirectToRoute('sala_new');
+				return $this->redirectToRoute('salas');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request". $e->getMessage());				
 			}

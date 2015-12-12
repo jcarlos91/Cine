@@ -1,0 +1,30 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Nueva Cartelera{% endblock %}
+{% block contenido %}
+	<h1>Registro de Cartelera</h1>
+	
+		{{ form_start(form)}}
+		{{ form_errors(form) }}
+	
+			{{form_label(form.peliculaId, 'Pelicula: ')}}
+			{{form_widget(form.peliculaId, {'attr': {'class': 'form-control'} })}}
+			{{form_errors(form.peliculaId)}}
+			
+			{{form_label(form.salaId, 'Sala: ')}}
+			{{form_errors(form.salaId)}}
+			{{form_widget(form.salaId, {'attr':{'class': 'form-control'}})}}
+
+			{{form_label(form.funcionId, 'Funcion: ')}}
+			{{form_errors(form.funcionId)}}
+			{{form_widget(form.funcionId)}}
+
+			{{form_label(form.audioId, 'Audio: ')}}
+			{{form_errors(form.audioId)}}
+			{{form_widget(form.audioId, {'attr':{'class': 'form-control'}})}}
+	
+			<input class="btn btn-default" type="submit">
+	
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+{% endblock %}

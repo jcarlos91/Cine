@@ -1,0 +1,24 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Tipos de Estatus{% endblock %}
+{% block contenido %}
+<article>
+	<h1>Tipos de Estatus</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Estatus</h>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		{% for estado in estatus %}
+			<tr>
+				<td>{{estado.id}}</td>
+				<td>{{estado.estatus}}</td>
+				<td><a href="{{url('estatus_peli_edit',{'id': estado.id})}}">Editar</a></td>
+				<td><a href="{{url('estatus_peli_delete',{'id': estado.id})}}">Eliminar</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	<input class="btn btn-default" type="submit" value="Nuevo" onclick="window.location='{{path('estatus_peli_new')}}'">
+</article>
+{% endblock %}

@@ -18,7 +18,7 @@ class BoletosController extends Controller{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($boleto);
 				$em->flush();
-				return $this->redirectToRoute('boletos_new');				
+				return $this->redirectToRoute('boletos	');				
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request". $e->getMessage());				
 			}
