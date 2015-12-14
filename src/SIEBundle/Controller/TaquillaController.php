@@ -15,6 +15,8 @@ class TaquillaController extends Controller{
 		$form->handleRequest($request);
 		if($form->isValid() && $form->isSubmitted()){
 			try {
+				$user = $this->getUser();
+				$taquilla->setVendedor($user);
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($taquilla);
 				$em->flush();
@@ -25,7 +27,7 @@ class TaquillaController extends Controller{
 		}
 		return $this->render('SIEBundle:Taquilla:nuevo.html.twig',array(
 			'taquilla'=>$taquilla,
-			'form'=>$form->createForm(),
+			'form'=>$form->createView(),
 			)
 		);
 	}

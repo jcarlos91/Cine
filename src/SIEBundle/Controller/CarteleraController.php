@@ -11,8 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 class CarteleraController extends Controller{
 
 	public function carteleraAction(){
+		$estatus = 1;
 		$repository = $this->getDoctrine()->getRepository('SIEBundle:Peliculas');
-		$cartelera = $repository->findAll();
+		$cartelera = $repository->findByEstatus($estatus);
 		//$movies = array('peli' => $cartelera['id']);
 		return $this->render('SIEBundle:Cartelera:cartelera.html.twig',array(
 			'cartelera'=>$cartelera,

@@ -1,0 +1,39 @@
+{% extends 'SIEBundle::main.html.twig' %}
+
+{% block title %}
+	Venta
+{% endblock %}
+{% block contenido %}
+<h1>Registro de Asientos</h1>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+				
+			{{form_label(form.fila, 'Fila: ')}}
+			{{form_errors(form.fila)}}
+			{{form_widget(form.fila, {'attr': {'class': 'text-capitalize form-control'} })}}
+		
+			{{form_label(form.columna, 'Columna: ')}}
+			{{form_errors(form.columna)}}
+			{{form_widget(form.columna, {'attr': {'class': 'text-capitalize form-control'} })}}
+		
+			{{form_label(form.cantidad, 'Cantidad: ')}}
+			{{form_errors(form.cantidad)}}
+			{{form_widget(form.cantidad, {'attr': {'class': 'form-control'} })}}
+
+			{{form_label(form.total, 'Cantidad: ')}}
+			{{form_errors(form.total )}}
+			{{form_widget(form.total, {'attr': {'class': 'form-control'} })}}
+		
+			{{form_label(form.cartelera, 'Cartelera: ')}}
+			{{form_errors(form.cartelera )}}
+			{{form_widget(form.cartelera, {'attr': {'class': 'form-control'} })}}
+
+			{{form_label(form.boleto, 'Boleto: ')}}
+			{{form_errors(form.boleto )}}
+			{{form_widget(form.boleto, {'attr': {'class': 'form-control'} })}}		
+		
+			<input class="btn btn-default" type="submit">
+		{{ form_row(form._token) }}
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+{% endblock %}

@@ -29,13 +29,13 @@ class Taquilla
     private $vendedor;
 
     /**
-     * @var \SIEBundle\Entity\Funcion
-     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Funcion")
+     * @var \SIEBundle\Entity\Cartelera
+     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Cartelera")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="funcion", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="cartelera", referencedColumnName="id")
      *   })
      */
-    private $funcion;
+    private $cartelera;
 
     /**
      * @var integer
@@ -117,25 +117,25 @@ class Taquilla
     }
 
     /**
-     * Set funcion
+     * Set Cartelera
      *
-     * @param \SIEBundle\Entity\Funcion $funcion
+     * @param \SIEBundle\Entity\Cartelera
      *
      * @return Taquilla
      */
-    public function setFuncion(\SIEBundle\Entity\Funcion $funcion = null){
-        $this->funcion = $funcion;
+    public function setCartelera(\SIEBundle\Entity\Cartelera $cartelera = null){
+        $this->cartelera = $cartelera;
 
         return $this;
     }
 
     /**
-     * Get funcion
+     * Get Cartelera
      *
-     * @return \SEIBundle\Entity\Funcion
+     * @return \SEIBundle\Entity\Cartelera
      */
-    public function getFuncion(){
-        return $this->funcion;
+    public function getCartelera(){
+        return $this->cartelera;
     }
 
     /**
@@ -276,5 +276,9 @@ class Taquilla
     public function getHrVta()
     {
         return $this->hrVta;
+    }
+
+    public function __construct(){
+        $this->hrVta = new \DateTime('now');
     }
 }
