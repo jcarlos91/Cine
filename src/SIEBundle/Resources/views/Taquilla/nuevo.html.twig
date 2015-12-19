@@ -1,10 +1,58 @@
 {% extends 'SIEBundle::main.html.twig' %}
 
-{% block title %}
-	Venta
-{% endblock %}
+{% block title %}Venta{% endblock %}
 {% block contenido %}
-<h1>Registro de Asientos</h1>
+<h1>Venta de Boletos</h1>
+	
+	{{dump(posData)}}
+
+	
+	{%  for boletos in boleto %}
+
+		{{boletos}}
+
+	{% endfor %}
+	
+
+	{%  for can in cantidad %}
+
+		{{can}}
+
+	{% endfor %}
+
+	{% for asiento in asientos %}
+		{% set fila = asiento.fila %}
+		{% set columna = asiento.columna %}
+		{% set fil = fil %}
+		{% set col = col %}
+			<article class="col-md-4">
+				<h1>Sala {{asiento.sala.tiposala}}<h1>
+				<table class="table table-striped">		
+					
+					{% for  noFila in 1..fila %}				
+						<tr>
+							<td>{{noFila}}</td>
+							{% for noColumna in 1..columna %}
+								{% if noFila == fil and noColumna == col %}
+									<td>
+										<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Ocupada">
+									</td>
+								{% else %}
+									<td>
+										<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">								
+									</td>
+								{% endif %}
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</table>
+				<h5>
+					<small>Disponible.<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="Disponible"></small><br>
+					<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
+					<small>	Mi Asiento<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Mi butaca"></small>
+					{{fil}},{{col}}
+				</h5>
+		{% endfor %}
 		{{ form_start(form) }}
 		{{ form_errors(form) }}
 				
@@ -16,24 +64,9 @@
 			{{form_errors(form.columna)}}
 			{{form_widget(form.columna, {'attr': {'class': 'text-capitalize form-control'} })}}
 		
-			{{form_label(form.cantidad, 'Cantidad: ')}}
-			{{form_errors(form.cantidad)}}
-			{{form_widget(form.cantidad, {'attr': {'class': 'form-control'} })}}
-
-			{{form_label(form.total, 'Cantidad: ')}}
-			{{form_errors(form.total )}}
-			{{form_widget(form.total, {'attr': {'class': 'form-control'} })}}
-		
-			{{form_label(form.cartelera, 'Cartelera: ')}}
-			{{form_errors(form.cartelera )}}
-			{{form_widget(form.cartelera, {'attr': {'class': 'form-control'} })}}
-
-			{{form_label(form.boleto, 'Boleto: ')}}
-			{{form_errors(form.boleto )}}
-			{{form_widget(form.boleto, {'attr': {'class': 'form-control'} })}}		
-		
-			<input class="btn btn-default" type="submit">
+			<input class="btn btn-default" type="submit">	
 		{{ form_row(form._token) }}
 		{{ form_rest(form) }}
 		{{ form_end(form) }}
+
 {% endblock %}

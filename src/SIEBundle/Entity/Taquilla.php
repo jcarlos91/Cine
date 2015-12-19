@@ -66,15 +66,6 @@ class Taquilla
     private $total;
 
     /**
-     * @var \SIEBundle\Entity\Boleto
-     * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Boleto")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="boleto", referencedColumnName="id")
-     *   })
-     */
-    private $boleto;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="hrVta", type="datetime")
@@ -231,30 +222,6 @@ class Taquilla
     }
 
     /**
-      * Set boleto
-     *
-     * @param \SIEBundle\Entity\Boleto $boleto
-     *
-     * @return Taquilla
-     */
-    public function setBoleto(\SIEBundle\Entity\Boleto $boleto = null)
-    {
-        $this->boleto = $boleto;
-
-        return $this;
-    }
-
-    /**
-     * Get boleto
-     *
-     * @return \SIEBundle\Entity\Boleto
-     */
-    public function getBoleto()
-    {
-        return $this->boleto;
-    }
-
-    /**
      * Set hrVta
      *
      * @param \DateTime $hrVta
@@ -280,5 +247,9 @@ class Taquilla
 
     public function __construct(){
         $this->hrVta = new \DateTime('now');
+    }
+
+    public function __toString(){
+        return (string) $car = $this->cartelera;
     }
 }

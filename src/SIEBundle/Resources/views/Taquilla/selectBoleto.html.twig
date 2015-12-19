@@ -1,0 +1,36 @@
+{% extends 'SIEBundle::main.html.twig' %}
+{% block title %}Selecion de Boletos{% endblock %}
+{% block contenido %}
+	<form name="X" class="dorm-control" action="{{url("taquilla_new",{'cartelera':cartelera.id})}}" method="POST">
+		<h1>Tipos de Boletos</h1>
+		<table class="table table-striped">
+			<tr>
+				<th>Tipo de Boleto</th>
+				<th>Precio</th>
+				<th>Cantidad</th>
+				<th>Subtotal</th>
+			</tr>
+			{% for key, boleto in boleto %}
+				<tr>
+					<td>{{boleto.tipoboleto}}</td>
+					<td>$<label id="precio-{{boleto.id}}" value="{{boleto.precio}}">{{boleto.precio}}</label></td>
+					<td><input class="cantidad" type="number" min="0" id="{{boleto.id}}" name="{{boleto.id}}"></td>
+					<td><label id="sub-{{boleto.id}}" ></label></td>
+				</tr>
+			{% endfor %}
+			<td>Total</td>
+			<td><label ></label></td>
+			<td></td>
+			<td><label id="total"></label></td>
+		</table>
+		<input class="btn btn-default" type="submit" value="Nuevo" >
+
+	</form>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="{{asset("js/totales.js")}}"></script>
+{% endblock %}

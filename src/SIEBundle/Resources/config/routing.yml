@@ -191,8 +191,11 @@ peliculas_delete:
     defaults: { _controller: SIEBundle:Peliculas:eliminar }
 #venta de boletos "Taquilla"
 taquilla_new:
-    path:    /taquilla/nuevo
+    path:    /taquilla/nuevo/{cartelera}
     defaults: { _controller: SIEBundle:Taquilla:nuevo }
+taquilla_boletos:
+    path:    /taquilla/boletos/{id}
+    defaults: { _controller: SIEBundle:Taquilla:boletos }
 #cartelera
 cartelera:
     path:    /cartelera

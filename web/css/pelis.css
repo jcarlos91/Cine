@@ -7,7 +7,7 @@
 
 label{
 	display: block;
-	padding: 5px;
+	padding: 1px;
 	
 }
 img{
@@ -36,5 +36,8 @@ h3{
 }
 article{
 	margin-top: 20px;
-	
+}
+span > a{
+	color: #111;	
+	display: inline-block;	
 }

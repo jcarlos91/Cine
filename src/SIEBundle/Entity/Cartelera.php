@@ -163,11 +163,5 @@ class Cartelera
     {
         return $this->audioId;
     }
-/*
-    public function __toString(){
-        return (string) $this->salaId;
-        return (string) $this->funcionId;
-        return (string) $this->audioId;
-    }*/
 }
 
