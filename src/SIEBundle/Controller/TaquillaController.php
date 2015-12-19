@@ -19,8 +19,13 @@ class TaquillaController extends Controller{
 		$sala = $cartelera->getSalaId();
 		$repository = $this->getDoctrine()->getRepository('SIEBundle:Asientos');
 		$asientos = $repository->findBySala($sala);
-		$fil = rand(1,9);
-		$col = rand(1,9);
+		foreach ($asientos as $key => $x) {
+			//$x = get_object_vars($value);
+			$a = $x->getFila();
+			$b = $x->getColumna();
+		}
+		$fil = rand(1,$a);
+		$col = rand(1,$b);
 		print_r ($postData);
 		
 		for ($i=1; $i < count($postData) ; $i++) { 
