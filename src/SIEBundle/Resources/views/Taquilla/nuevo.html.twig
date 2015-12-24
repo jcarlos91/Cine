@@ -3,70 +3,67 @@
 {% block title %}Venta{% endblock %}
 {% block contenido %}
 <h1>Venta de Boletos</h1>
-	
-	{{dump(posData)}}
-
-	
-	{%  for boletos in boleto %}
-
-		{{boletos}}
-
-	{% endfor %}
-	
-
-	{%  for can in cantidad %}
-
-		{{can}}
-
-	{% endfor %}
-
 	{% for asiento in asientos %}
+		<label >Total de boletos: </label>{{totalBoletos}}
 		{% set fila = asiento.fila %}
 		{% set columna = asiento.columna %}
 		{% set fil = fil %}
 		{% set col = col %}
-			<article class="col-md-4">
+			<article class="col-md-12">
 				<h1>Sala {{asiento.sala.tiposala}}<h1>
 				<table class="table table-striped">		
-					
-					{% for  noFila in 1..fila %}				
-						<tr>
-							<td>{{noFila}}</td>
-							{% for noColumna in 1..columna %}
-								{% if noFila == fil and noColumna == col %}
-									<td>
-										<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Ocupada">
-									</td>
-								{% else %}
-									<td>
-										<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">								
-									</td>
-								{% endif %}
-							{% endfor %}
-						</tr>
-					{% endfor %}
-				</table>
-				<h5>
-					<small>Disponible.<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="Disponible"></small><br>
-					<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
-					<small>	Mi Asiento<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Mi butaca"></small>
-					{{fil}},{{col}}
-				</h5>
-		{% endfor %}
-		{{ form_start(form) }}
-		{{ form_errors(form) }}
 				
-			{{form_label(form.fila, 'Fila: ')}}
-			{{form_errors(form.fila)}}
-			{{form_widget(form.fila, {'attr': {'class': 'text-capitalize form-control'} })}}
-		
-			{{form_label(form.columna, 'Columna: ')}}
-			{{form_errors(form.columna)}}
-			{{form_widget(form.columna, {'attr': {'class': 'text-capitalize form-control'} })}}
-		
-			<input class="btn btn-default" type="submit">	
-		{{ form_row(form._token) }}
-		{{ form_rest(form) }}
-		{{ form_end(form) }}
+				{% for  noFila in 1..fila %}				
+					<tr>
+						<td>{{noFila}}</td>
+						{% for noColumna in 1..columna %}
+							{% if noFila == fil and noColumna == col %}		
+								{% set pos = loop.index + 1 %}					
+								{% for x in range(low=col, high=noColumna, step=totalBoletos) %}
+									<td>
+										{{x}}<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Ocupada">
+									</td>
+									{% set noColumna = loop.index + loop.index %}
+								{% endfor %}
+							{% else %}
+								<td>
+									{{noColumna}}<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">				
+								</td>
+							{% endif %}
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+			<h5>
+				<small>Disponible.<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="Disponible"></small><br>
+				<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
+				<small>	Mi Asiento<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Mi butaca"></small>
+				{{fil}},{{col}}
+			</h5>
 
+
+	{% endfor %}
+
+	{% for i in range(0, totalBoletos) %}
+	    {{ i }},
+	{% endfor %}
+
+		{% for i in range(low=1, high=10, step=2) %}
+		    {{ i }},
+		{% endfor %}
+	{#{ form_start(form) }}
+	{{ form_errors(form) }}
+			
+		{{form_label(form.fila, 'Fila: ')}}
+		{{form_errors(form.fila)}}
+		{{form_widget(form.fila, {'attr': {'class': 'text-capitalize form-control'} })}}
+	
+		{{form_label(form.columna, 'Columna: ')}}
+		{{form_errors(form.columna)}}
+		{{form_widget(form.columna, {'attr': {'class': 'text-capitalize form-control'} })}}
+	
+		<input class="btn btn-default" type="submit">	
+	{{ form_row(form._token) }}
+	{{ form_rest(form) }}
+	{{ form_end(form) }#}
 {% endblock %}
