@@ -1,50 +1,43 @@
 {% extends 'SIEBundle::main.html.twig' %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="{{asset('css/butacas.css')}}">
+{% endblock %}
 
 {% block title %}Venta{% endblock %}
 {% block contenido %}
-<h1>Venta de Boletos</h1>
-	{% for asiento in asientos %}
-		<label >Total de boletos: </label>{{totalBoletos}}
-		{% set fila = asiento.fila %}
-		{% set columna = asiento.columna %}
-		{% set fil = fil %}
-		{% set col = col %}
-			<article class="col-md-12">
-				<h1>Sala {{asiento.sala.tiposala}}<h1>
+	<h1>Venta de Boletos</h1>
+	<form class="asientos" action="" methood="POST">
+			{% for asiento in asientos %}
+			<label >Total de boletos: </label><input type="text" id="total" value="{{totalBoletos}}" readonly="true">
+			{% set fila = asiento.fila %}
+			{% set columna = asiento.columna %}
+			{% set fil = fil %}
+			{% set col = col %}
+				<article class="col-md-12  acciones"-->
+					<h1>Sala {{asiento.sala.tiposala}}</h1>
 				<table class="table table-striped">		
-				
-				{% for  noFila in 1..fila %}				
-					<tr>
-						<td>{{noFila}}</td>
-						{% for noColumna in 1..columna %}
-							{% if noFila == fil and noColumna == col %}		
-								{% set pos = loop.index + 1 %}					
-								{% for x in range(low=col, high=noColumna, step=totalBoletos) %}
-									<td>
-										{{x}}<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Ocupada">
-									</td>
-									{% set noColumna = loop.index + loop.index %}
-								{% endfor %}
-							{% else %}
-								<td>
-									{{noColumna}}<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">				
-								</td>
-							{% endif %}
-						{% endfor %}
-					</tr>
-				{% endfor %}
-			</table>
-			<h5>
-				<small>Disponible.<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="Disponible"></small><br>
-				<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
-				<small>	Mi Asiento<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Mi butaca"></small>
-				{{fil}},{{col}}
-			</h5>
-
-
-	{% endfor %}
-
-	{% for i in range(0, totalBoletos) %}
+					
+					{% for  noFila in 1..fila %}				
+						<tr >
+							<td>{{noFila}}</td>
+							{% for noColumna in 1..columna %}
+								<td >
+									<input class="check" type="checkbox" id="{{noFila}}-{{noColumna}}"><img id="my_image-{{noFila}}-{{noColumna}}" src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}" class="imgButaca">	
+								</td>							
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</table>
+				<h5>
+					<small>Disponible.<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="Disponible"></small><br>
+					<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
+				</h5>			
+		{% endfor %}
+		<input type="submit" value="Confirmar" class="btn btn-default">
+	</form>
+	
+	{#% for i in range(0, totalBoletos) %}
 	    {{ i }},
 	{% endfor %}
 
@@ -65,5 +58,23 @@
 		<input class="btn btn-default" type="submit">	
 	{{ form_row(form._token) }}
 	{{ form_rest(form) }}
+
+							{% if noFila == fil and noColumna == col %}		
+								{% set pos = loop.index + 1 %}					
+								{% for x in noColumna..totalBoletos %}
+									<td>
+										{{x}}<img src="{{asset('img/butacas/miButaca.gif')}}" alt="Ocupada">
+									</td>
+									{% set noColumna = loop.index + loop.index %}
+								{% endfor %}
+							{% else %}
+								<td>
+									{{noColumna}}<img src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}">				
+								</td>
+							{% endif %}
 	{{ form_end(form) }#}
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}	
+	<script src="{{asset('js/asientos.js')}}"></script>
 {% endblock %}

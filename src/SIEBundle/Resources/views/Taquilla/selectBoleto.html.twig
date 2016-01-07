@@ -1,7 +1,7 @@
 {% extends 'SIEBundle::main.html.twig' %}
 {% block title %}Selecion de Boletos{% endblock %}
 {% block contenido %}
-	<form name="X" class="dorm-control" action="{{url("taquilla_new",{'cartelera':cartelera.id})}}" method="POST">
+	<form name="X" action="{{url("taquilla_new",{'cartelera':cartelera.id})}}" method="POST">
 		<h1>Tipos de Boletos</h1>
 		<table class="table table-striped">
 			<tr>
@@ -13,7 +13,7 @@
 			{% for key, boleto in boleto %}
 				<tr>
 					<td>{{boleto.tipoboleto}}</td>
-					<td>$<label id="precio-{{boleto.id}}" value="{{boleto.precio}}">{{boleto.precio}}</label></td>
+					<td>$<label id="precio-{{boleto.id}}" value="{{boleto.precio}}">{{boleto.precio}}</label>  </td>
 					<td><input class="cantidad" type="number" min="0" id="{{boleto.id}}" name="{{boleto.id}}"></td>
 					<td><label id="sub-{{boleto.id}}" ></label></td>
 				</tr>

@@ -13,12 +13,12 @@ class TaquillaController extends Controller{
 
 	public function nuevoAction(Request $request, Cartelera $cartelera){
 		$postData = $request->request->all();       
-		$taquilla = new Taquilla();
-		$form = $this->createForm(new TaquillaType(), $taquilla);
-		$form->handleRequest($request);
-		$sala = $cartelera->getSalaId();
-		$repository = $this->getDoctrine()->getRepository('SIEBundle:Asientos');
-		$asientos = $repository->findBySala($sala);
+		//$taquilla = new Taquilla();
+		/*$form = $this->createForm(new TaquillaType(), $taquilla);
+		$form->handleRequest($request);*/
+		$sala = $cartelera->getSalaId();//Se obtione el Id de la Sala evienda el el post
+		$repository = $this->getDoctrine()->getRepository('SIEBundle:Asientos');//se accede al la entidad Asientos 
+		$asientos = $repository->findBySala($sala);//Se obtienen los asiento de la sala obtenida.
 		//Se obtienes los limites de la sala 
 		foreach ($asientos as $key => $x) {
 			$a = $x->getFila();//limite de la fila
@@ -27,26 +27,23 @@ class TaquillaController extends Controller{
 		//se obtiene la suma de los boletos
 		$totalBoletos = array_sum($postData);
 
-		$fil = rand(1,$a);//Se obtiene un nuemro ramdom para el asiento sin pasarse del limite de la fila
-		$col = rand(1,$b - $totalBoletos);//Se obtiene un nuemro ramdom para el asiento sin pasarse del limite de la columna
+		
 		//print_r ($postData);
 		
-		/*
+
+		
 		
 		for ($i=1; $i < count($postData); $i++) { 
 			$boleto = $postData[$i];
 			$cantidad = $postData[$i];
 		}
-
-		foreach ($postData as $boletoTipo => $cantidad) {
+		/*foreach ($postData as $boletoTipo => $cantidad) {
 			printf($boletoTipo . "=". $cantidad);
 			print("<br>");
-		}
-		print_r($boleto);
-		print_r($cantidad);
-		print_r(count($postData));*/
-		if($form->isValid() && $form->isSubmitted()){
-			try {
+		}*/
+		
+		//if($form->isValid() && $form->isSubmitted()){
+			/*try {
 				$cantidad = $postData['cantidad'];
 		        $fila = $postData['fila'];
 		        $columna = $postData['columna'];
@@ -59,19 +56,19 @@ class TaquillaController extends Controller{
 				return $this->redirectToRoute('taquilla_new');
 			} catch (\Exception $e) {
 				throw new \Exception("Error Processing Request".$e->getMessage());				
-			}
-		}
+			}*/
+		//}
 		return $this->render('SIEBundle:Taquilla:nuevo.html.twig',array(
 			'taquilla'=>$taquilla,
-			'form'=>$form->createView(),
+			//'form'=>$form->createView(),
 			'cartelera'=>$cartelera,
 			'sala'=>$sala,
 			'asientos'=>$asientos,
 			'fil' => $fil,
 			'col' => $col,
 			'posData'=>$postData,
-			//'boleto'=>$boleto,
-			//'cantidad'=>$cantidad,
+			/*boleto'=>$boleto,
+			'cantidad'=>$cantidad,*/
 			'totalBoletos'=>$totalBoletos,
 			)
 		);

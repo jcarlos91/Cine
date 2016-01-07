@@ -1,0 +1,15 @@
+.asientos{
+	float: left;		
+}
+.table{
+	float: left;	
+}
+td>.check{
+	width: 25px;
+}
+#total{
+	border: none;
+}
+#pantalla{
+	float: center;
+}
