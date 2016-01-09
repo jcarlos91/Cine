@@ -5,10 +5,10 @@ $(".check").change(function(e){
 	if($total > $boleto){
 		alert("Excedes numero de asientos");
 		$('.check').prop("checked", false);
-		$(".imgButaca").attr("src","/SIE/web/img/butacas/butacaVacia.gif");
+		$(".imgButaca").attr("src","/Cine/web/img/butacas/butacaVacia.gif");
 	}else{
 		$(this).is(':checked') ? 
-		$("#my_image-"+$(this).attr('id')).attr("src","/SIE/web/img/butacas/miButaca.gif")
-		: $("#my_image-"+$(this).attr('id')).attr("src","/SIE/web/img/butacas/butacaVacia.gif")
+		$("#my_image-"+$(this).attr('id')).attr("src","/Cine/web/img/butacas/miButaca.gif")
+		: $("#my_image-"+$(this).attr('id')).attr("src","/Cine/web/img/butacas/butacaVacia.gif")
 	}
 });

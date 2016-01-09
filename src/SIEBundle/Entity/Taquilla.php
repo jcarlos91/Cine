@@ -23,15 +23,6 @@ class Taquilla
     private $id;
 
     /**
-     * @var \SIEBundle\Entity\User
-     * @ORM\OneToOne(targetEntity="SIEBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vendedor", referencedColumnName="id")
-     *   })
-     */
-    private $vendedor;
-
-    /**
      * @var \SIEBundle\Entity\Cartelera
      * @ORM\ManyToOne(targetEntity="SIEBundle\Entity\Cartelera")
      * @ORM\JoinColumns({
@@ -63,34 +54,6 @@ class Taquilla
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set vendedor
-     *
-     * @param \SIEBundle\Entity\User $vendedor
-     *
-     * @return Taquilla
-     */
-    public function setVendedor(\SIEBundle\Entity\User $vendedor = null)
-    {
-        $this->vendedor = $vendedor;
-
-        $repository = $this->getDoctrine()->getRepository('SIEBundle:User');
-        $userId = $repository->findUsername($this);
-        
-
-        return $userId;
-    }
-
-    /**
-     * Get vendedor
-     *
-     * @return \SIEBundle\Entity\User
-     */
-    public function getVendedor()
-    {
-        return $this->vendedor;
     }
 
     /**

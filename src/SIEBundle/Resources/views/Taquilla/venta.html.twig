@@ -2,5 +2,10 @@
 
 {% block title %}Venta{% endblock %}
 {% block contenido %}
-	{{dump(postData)}}
+{% for taqui in taquilla %}
+	{{taqui.cartelera}}
+{% endfor %}
+{{dump(postData)}}
+{{dump(fila)}}
+{{dump(columna)}}
 {% endblock %}

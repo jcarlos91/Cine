@@ -38,9 +38,6 @@ class TaquillaController extends Controller{
 		
 		//if($request->getMethod() == 'POST' && $this->get('request')->request->get('confirmar')){
 			try {
-				$user = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
-				$id = $userId->getId();
-				$taquilla->setVendedor($user);
 				$taquilla->setCartelera($cartelera);
 				$taquilla->setCantidad($totalBoletos);
 				$em = $this->getDoctrine()->getManager();
@@ -76,11 +73,33 @@ class TaquillaController extends Controller{
 		);
 	}
 
-	public function ventaAction(Request $request, Cartelera $cartelera){
+	public function ventaAction(Request $request, Taquilla $taquilla){
 		$postData = $request->request->all();
+
+		foreach ($postData as $key => $value) {//se recorre el array con los checkbox	
+			$asientos = explode("-", $key);//se obtiene posision de asientos
+			$fila = array($asientos[0]);
+			$columna = array($asientos[1]);
+			//print_r($asientos);
+			//var_dump($asientos);
+			var_dump($fila);
+			var_dump($columna);
+			//var_dump($columna);
+			//var_dump($key);
+			//var_dump($value);	
+		}
+		/*
+		foreach ($asientos as $key => $value) {
+			print_r($key);
+		}*/
+		var_dump($postData);
+
 
 		return $this->render('SIEBundle:Taquilla:venta.html.twig',array(
 			'postData'=>$postData,
+			'taquilla'=>$taquilla,
+			'fila'=>$fila,
+			'columna'=>$columna,
 			)
 		);
 	}

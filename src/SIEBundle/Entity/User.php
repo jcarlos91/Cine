@@ -86,7 +86,11 @@ class User implements UserInterface, \Serializable
      */
     public function getId()
     {
-        return $this->id;
+        //return $this->id;
+        $user = $this->get('security.context')->getToken()->getUser();
+        $userId = $user->getId();
+
+        return $userId;
     }
 
     /**

@@ -7,7 +7,7 @@
 {% block title %}Venta{% endblock %}
 {% block contenido %}
 	<h1>Venta de Boletos</h1>
-	<form class="asientos" action="{{url('taquilla_new',{'cartelera':cartelera.id})}}" methood="POST">
+	<form class="asientos" action="{{url('taquilla_venta',{'taquilla':taquilla.id})}}" method="POST">
 			{% for asiento in asientos %}
 			<label >Total de boletos: </label><input type="text" id="total" value="{{totalBoletos}}" readonly="true">
 			{% set fila = asiento.fila %}
@@ -23,7 +23,7 @@
 							<td>{{noFila}}</td>
 							{% for noColumna in 1..columna %}
 								<td >
-									<input class="check" type="checkbox" id="{{noFila}}-{{noColumna}}"><img id="my_image-{{noFila}}-{{noColumna}}" src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}" class="imgButaca">	
+									<input class="check" type="checkbox" id="{{noFila}}-{{noColumna}}" name	="{{noFila}}-{{noColumna}}"><img id="my_image-{{noFila}}-{{noColumna}}" src="{{asset('img/butacas/butacaVacia.gif')}}" alt="{{noColumna}}" class="imgButaca">	
 								</td>							
 							{% endfor %}
 						</tr>
@@ -34,7 +34,7 @@
 					<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
 				</h5>			
 		{% endfor %}
-		<input type="submit" value="confirmar" class="btn btn-default" name="confirmar">
+		<input type="submit" value="confirmar" class="btn btn-default" >
 		
 	</form>
 	
