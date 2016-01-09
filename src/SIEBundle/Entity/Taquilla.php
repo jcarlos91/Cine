@@ -3,6 +3,7 @@
 namespace SIEBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Taquilla
@@ -22,9 +23,11 @@ class Taquilla
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="vendedor", type="integer")
+     * @var \SIEBundle\Entity\User
+     * @ORM\OneToOne(targetEntity="SIEBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vendedor", referencedColumnName="id")
+     *   })
      */
     private $vendedor;
 
@@ -40,30 +43,9 @@ class Taquilla
     /**
      * @var integer
      *
-     * @ORM\Column(name="fila", type="integer")
-     */
-    private $fila;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="columna", type="integer")
-     */
-    private $columna;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="cantidad", type="integer")
      */
     private $cantidad;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="total", type="integer")
-     */
-    private $total;
 
     /**
      * @var \DateTime
@@ -86,21 +68,25 @@ class Taquilla
     /**
      * Set vendedor
      *
-     * @param integer $vendedor
+     * @param \SIEBundle\Entity\User $vendedor
      *
      * @return Taquilla
      */
-    public function setVendedor($vendedor)
+    public function setVendedor(\SIEBundle\Entity\User $vendedor = null)
     {
         $this->vendedor = $vendedor;
 
-        return $this;
+        $repository = $this->getDoctrine()->getRepository('SIEBundle:User');
+        $userId = $repository->findUsername($this);
+        
+
+        return $userId;
     }
 
     /**
      * Get vendedor
      *
-     * @return integer
+     * @return \SIEBundle\Entity\User
      */
     public function getVendedor()
     {
@@ -116,7 +102,6 @@ class Taquilla
      */
     public function setCartelera(\SIEBundle\Entity\Cartelera $cartelera = null){
         $this->cartelera = $cartelera;
-
         return $this;
     }
 
@@ -127,50 +112,6 @@ class Taquilla
      */
     public function getCartelera(){
         return $this->cartelera;
-    }
-
-    /**
-     * Set fila
-     *
-     * @param string $fila
-     *
-     * @return Sala
-     */
-    public function setFila($fila){
-        $this->fila = $fila;
-
-        return $this;
-    }
-
-    /**
-     * Get Fila
-     *
-     * @return integer
-     */
-    public function getFila(){
-        return $this->fila;
-    }
-
-    /**
-     * Set columna
-     *
-     * @param string $columna
-     *
-     * @return Sala
-     */
-    public function setColumna($columna){
-        $this->columna = $columna;
-
-        return $this;
-    }
-
-    /**
-     * Get columna
-     *
-     * @return integer
-     */
-    public function getColumna(){
-        return $this->columna;
     }
 
     /**
@@ -198,30 +139,6 @@ class Taquilla
     }
 
     /**
-     * Set total
-     *
-     * @param integer $total
-     *
-     * @return Taquilla
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
-    /**
-     * Get total
-     *
-     * @return integer
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
      * Set hrVta
      *
      * @param \DateTime $hrVta
@@ -246,7 +163,9 @@ class Taquilla
     }
 
     public function __construct(){
-        $this->hrVta = new \DateTime('now');
+       $this->hrVta = new \DateTime('now');
+       
+
     }
 
     public function __toString(){

@@ -7,7 +7,7 @@
 {% block title %}Venta{% endblock %}
 {% block contenido %}
 	<h1>Venta de Boletos</h1>
-	<form class="asientos" action="" methood="POST">
+	<form class="asientos" action="{{url('taquilla_new',{'cartelera':cartelera.id})}}" methood="POST">
 			{% for asiento in asientos %}
 			<label >Total de boletos: </label><input type="text" id="total" value="{{totalBoletos}}" readonly="true">
 			{% set fila = asiento.fila %}
@@ -34,7 +34,8 @@
 					<small>Ocupado.<img src="{{asset('img/butacas/butacaOcupada.gif')}}" alt="Ocupada"></small><br>
 				</h5>			
 		{% endfor %}
-		<input type="submit" value="Confirmar" class="btn btn-default">
+		<input type="submit" value="confirmar" class="btn btn-default" name="confirmar">
+		
 	</form>
 	
 	{#% for i in range(0, totalBoletos) %}

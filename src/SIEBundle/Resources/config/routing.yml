@@ -196,6 +196,9 @@ taquilla_new:
 taquilla_boletos:
     path:    /taquilla/boletos/{id}
     defaults: { _controller: SIEBundle:Taquilla:boletos }
+taquilla_venta:
+    path:   /taquilla/venta/{taquilla}
+    defaults: { _controller: SIEBundle:Taquilla:venta }
 #cartelera
 cartelera:
     path:    /cartelera
